@@ -503,19 +503,58 @@ def cross_validate(smart_money: dict, new_high: dict, divergence: dict) -> dict[
             top_sig = sigs[0] if sigs else ""
             signals.append(f"📈 divergence {grade} {dv.get('score_100','')} {top_sig}")
 
-        # 진입 권장도
+        # === 3단계 매수 신호 (✅ 사도 OK / ⚠️ 조심 분할 / ⛔ 회피) ===
+        sm_labels_set = (sm or {}).get("labels") or []
+
         if block_reasons:
-            action = "회피"
+            action_level = "avoid"
             action_emoji = "⛔"
-        elif verification >= 3:
-            action = "강력 매수"
-            action_emoji = "🏆"
-        elif verification == 2:
-            action = "매수"
-            action_emoji = "🥇"
+            action = "회피"
+            action_reasons = list(block_reasons)
         else:
-            action = "관심"
-            action_emoji = "👀"
+            cautions: list[str] = []
+
+            # RSI 70~79 — 과열 직전 경고
+            if isinstance(rsi, (int, float)) and 70 <= rsi < 80:
+                cautions.append(f"RSI {rsi:.0f} 다소 높음")
+
+            # 단일 소스만 잡힘 — 다중 합의 부재
+            if verification == 1:
+                cautions.append("단일 소스 신호")
+
+            # 적자 기업
+            if any(("적자" in lab) or ("💀" in lab) or ("⚠️적자" in lab) for lab in sm_labels_set):
+                cautions.append("적자 기업")
+
+            # 추세 검증 부족 (new-high에서 점수 못 받은 경우)
+            if (genuine["breakdown"].get("trend") or 0) == 0 and (genuine["breakdown"].get("accumulation") or 0) > 0:
+                cautions.append("추세 검증 부족")
+
+            # 매집은 강한데 출발 신호 미발현
+            if (genuine["breakdown"].get("ignition") or 0) == 0 and (genuine["breakdown"].get("accumulation") or 0) >= 15:
+                cautions.append("출발 신호 미발현")
+
+            # 종합 점수 부족 (40점 미만이지만 분류엔 잡힘)
+            if genuine["total"] < 40:
+                cautions.append("종합 점수 부족")
+
+            # 사이클/이미 큰 폭 상승 — new-high의 ret_20d 검사
+            if nh:
+                ret_20d = nh.get("ret_20d")
+                if isinstance(ret_20d, (int, float)) and ret_20d >= 30:
+                    cautions.append(f"20일 +{ret_20d:.0f}% 과속")
+
+            # 결정
+            if not cautions and verification >= 2 and genuine["total"] >= 40:
+                action_level = "safe"
+                action_emoji = "✅"
+                action = "사도 OK"
+                action_reasons = []
+            else:
+                action_level = "cautious"
+                action_emoji = "⚠️"
+                action = "조심 분할"
+                action_reasons = cautions
 
         # 보조 지표(카드 표시용)만 추출 — 원본 raw는 제거(용량 90%+ 절감)
         rsi_val = _safe_get(nh, "rsi") or _safe_get(dv, "daily_rsi")
@@ -536,7 +575,9 @@ def cross_validate(smart_money: dict, new_high: dict, divergence: dict) -> dict[
             "trading": levels,
             "position_size_pct": position_pct,
             "action": action,
+            "action_level": action_level,   # safe / cautious / avoid
             "action_emoji": action_emoji,
+            "action_reasons": action_reasons,
             "block_reasons": block_reasons,
             "signals_summary": signals,
             "a_signal": a_sig,

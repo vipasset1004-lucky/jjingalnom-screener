@@ -176,6 +176,28 @@
     .action.ok { color: var(--good); }
     .action.watch { color: var(--mut); }
     .action.block { color: var(--bad); }
+    .action.safe-action { color: var(--good); font-weight: 700; }
+    .action.cautious-action { color: var(--warn); font-weight: 700; }
+    .action.avoid-action { color: var(--bad); font-weight: 700; }
+
+    .action-reasons {
+      margin-top: 8px; padding: 7px 10px;
+      font-size: 12px; line-height: 1.5;
+      background: rgba(245,158,11,.08);
+      border: 1px solid rgba(245,158,11,.3);
+      border-radius: 6px; color: #fbbf24;
+    }
+    .action-reasons.avoid {
+      background: rgba(239,68,68,.08);
+      border-color: rgba(239,68,68,.3);
+      color: #fca5a5;
+    }
+    .action-reasons.safe {
+      background: rgba(34,197,94,.08);
+      border-color: rgba(34,197,94,.3);
+      color: #6ee7b7;
+    }
+    .action-reasons b { color: inherit; }
     .pos {
       color: var(--mut);
     }
@@ -283,7 +305,13 @@
   </div>
 
   <div class="filters">
-    <label class="toggle"><input type="checkbox" id="f-hide-blocked" checked /> 회피 종목 숨기기</label>
+    <label>매수 신호
+      <select id="f-action">
+        <option value="safe">✅ 사도 OK만</option>
+        <option value="safe_caut" selected>✅⚠️ 조심까지</option>
+        <option value="all">전체 (회피 포함)</option>
+      </select>
+    </label>
     <label>최소 검증도
       <select id="f-min-v">
         <option value="1" selected>1중 이상</option>
@@ -320,8 +348,8 @@
     const state = {
       data: null,
       cat: 'GENUINE',
-      hideBlocked: true,
-      minV: 1,            // 진짜 갈놈 탭은 1중 검증도 포함 (미발견 보석 노출)
+      actionFilter: 'safe_caut',   // safe / safe_caut / all
+      minV: 1,
       sort: 'default',
       search: '',
     };
@@ -371,7 +399,8 @@
       const stocks = state.data.stocks || [];
       const pass = (s) => {
         if (s.verification < state.minV) return false;
-        if (state.hideBlocked && s.block_reasons && s.block_reasons.length) return false;
+        if (state.actionFilter === 'safe' && s.action_level !== 'safe') return false;
+        if (state.actionFilter === 'safe_caut' && s.action_level === 'avoid') return false;
         return true;
       };
       const a = stocks.filter(s => (s.category === 'A' || s.category === 'AB') && pass(s)).length;
@@ -419,9 +448,11 @@
       }
       // 검증도
       list = list.filter(s => s.verification >= state.minV);
-      // 회피 숨김
-      if (state.hideBlocked) {
-        list = list.filter(s => !s.block_reasons || s.block_reasons.length === 0);
+      // 매수 신호 필터
+      if (state.actionFilter === 'safe') {
+        list = list.filter(s => s.action_level === 'safe');
+      } else if (state.actionFilter === 'safe_caut') {
+        list = list.filter(s => s.action_level === 'safe' || s.action_level === 'cautious');
       }
       // 검색
       if (state.search) {
@@ -470,12 +501,17 @@
           <div class="row"><span>🎯 익절2</span><span class="tp2">${fmtPrice(t.tp2)}</span></div>
         </div>
       `;
-      const actionCls = s.block_reasons?.length ? 'block' :
-                        s.verification === 3 ? 'gold' :
-                        s.verification === 2 ? 'ok' : 'watch';
-      const blocked = s.block_reasons?.length
-        ? `<div class="block-reasons">⚠️ ${s.block_reasons.join(' · ')}</div>`
-        : '';
+      const lvl = s.action_level || 'cautious';
+      const actionCls = lvl === 'avoid' ? 'avoid-action' :
+                        lvl === 'safe'  ? 'safe-action'  : 'cautious-action';
+      const reasons = (s.action_reasons || []).slice();
+      let reasonsHtml = '';
+      if (reasons.length) {
+        const cls = lvl === 'avoid' ? 'avoid' : lvl === 'safe' ? 'safe' : '';
+        const prefix = lvl === 'avoid' ? '⛔ 회피' : '⚠️ 주의';
+        reasonsHtml = `<div class="action-reasons ${cls}"><b>${prefix}:</b> ${reasons.join(' · ')}</div>`;
+      }
+      // 기존 block_reasons UI 제거 — action_reasons로 통합
       const vClass = s.verification === 3 ? ' v3' : s.verification === 2 ? ' v2' : '';
       return `
         <div class="card${vClass} ${s.block_reasons?.length ? 'blocked' : ''}">
@@ -496,7 +532,7 @@
           ${themes ? `<div class="signals"><div class="line">${themes}</div></div>` : ''}
           <div class="signals">${signals}</div>
           ${levels}
-          ${blocked}
+          ${reasonsHtml}
           <div class="footer-line">
             <span class="action ${actionCls}">${s.action_emoji} ${s.action}</span>
             <span class="pos">비중 <b>${s.position_size_pct}%</b></span>
@@ -530,8 +566,8 @@
       state.cat = tab.dataset.cat;
       render();
     });
-    document.getElementById('f-hide-blocked').addEventListener('change', (e) => {
-      state.hideBlocked = e.target.checked; render();
+    document.getElementById('f-action').addEventListener('change', (e) => {
+      state.actionFilter = e.target.value; render();
     });
     document.getElementById('f-min-v').addEventListener('change', (e) => {
       state.minV = parseInt(e.target.value, 10); render();
