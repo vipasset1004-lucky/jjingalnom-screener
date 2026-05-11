@@ -304,66 +304,86 @@ def _genuine_score(sm, nh, dv) -> dict[str, Any]:
 # 핵심 조합: 소형주 + OBV 매집 + RSI 안전 + 과속 안 함 + 매집 길이 + 출발 임박.
 
 def _core_score(sm, nh, dv) -> dict[str, Any]:
+    """수급 중심 갈놈 코어 점수 (0~120).
+       시총 무관 — 외인·기관 매집이 강하면 대형주도 진짜 갈놈."""
     score = 0
     hits: list[str] = []
     penalties: list[str] = []
 
-    # === 시총 — 35점 (소형주 폭발력) ===
-    mcap_won = _safe_get(sm, "marcap")
-    if isinstance(mcap_won, (int, float)) and mcap_won > 0:
-        mcap_eok = mcap_won / 1e8
-        if mcap_eok < 1000:
-            score += 30; hits.append(f"극소형 {mcap_eok:.0f}억")
-        elif mcap_eok < 2500:
-            score += 25; hits.append(f"초소형 {mcap_eok:.0f}억")
-        elif mcap_eok < 5000:
-            score += 18; hits.append(f"소형 {mcap_eok:.0f}억")
-        elif mcap_eok < 10000:
-            score += 10; hits.append(f"중소형 {mcap_eok:.0f}억")
-        elif mcap_eok < 30000:
-            score += 3
-        # 대형주는 0점
+    # === A. 수급 강도 (40점) — 핵심 ===
+    # A-1. 외인/기관 주봉 누적 매수 (15점)
+    sm_w = _safe_get(sm, "weekly_pack", "smart_money_w") or {}
+    foreign_sum = sm_w.get("foreign_sum") or 0
+    inst_sum    = sm_w.get("inst_sum") or 0
+    both_positive = foreign_sum > 0 and inst_sum > 0
+    either_strong_buy = foreign_sum > 5e5 or inst_sum > 5e5
+    either_strong_sell = foreign_sum < -5e5 or inst_sum < -5e5
+    total_flow = foreign_sum + inst_sum
 
-    # === OBV / 매집 신호 — 30점 ===
+    if both_positive and total_flow > 5e6:
+        score += 15; hits.append("외인+기관 강력 매집")
+    elif both_positive and total_flow > 5e5:
+        score += 11; hits.append("외인+기관 동시매수")
+    elif both_positive:
+        score += 7; hits.append("외인+기관 동방향")
+    elif either_strong_buy and not either_strong_sell:
+        score += 7; hits.append("외인 또는 기관 강한 매수")
+    elif either_strong_sell:
+        score -= 5; penalties.append("외인/기관 순매도")
+
+    # A-2. 수급 분해 (smart-money 알고리즘의 confluence + intensity + persistence, 25점)
+    conf        = _safe_get(sm, "score", "confluence")  or 0  # 30점 만점
+    intensity   = _safe_get(sm, "score", "intensity")    or 0  # 25점
+    persistence = _safe_get(sm, "score", "persistence")  or 0  # 25점
+    flow_sub = (conf / 30 * 10) + (intensity / 25 * 8) + (persistence / 25 * 7)
+    score += round(flow_sub)
+    if conf >= 20:
+        hits.append(f"수급 일치 강함 ({conf:.0f}/30)")
+    if persistence >= 18:
+        hits.append("수급 N일 연속")
+
+    # === B. 거래량 매집 (30점) ===
     dv_signals = (dv or {}).get("signals") or []
     sig_text = " | ".join(dv_signals)
     obv_sub = 0
     if "OBV" in sig_text:
-        obv_sub += 18; hits.append("OBV 다이버전스")
+        obv_sub += 15; hits.append("OBV 다이버전스")
     if "거래량 선행 매집" in sig_text:
-        obv_sub += 8; hits.append("거래량 매집")
+        obv_sub += 8; hits.append("거래량 선행 매집")
     if "매집비율" in sig_text:
         obv_sub += 5
     if "Pocket Pivot" in sig_text:
         obv_sub += 5; hits.append("Pocket Pivot")
     if "20주선 안착" in sig_text:
         obv_sub += 3
+
+    # 거래대금 폭증
+    amount_mult = _safe_get(sm, "metrics", "amount_mult") or 0
+    if amount_mult >= 3:
+        obv_sub += 5; hits.append(f"거래대금 {amount_mult:.1f}배")
+    elif amount_mult >= 2:
+        obv_sub += 3
     score += min(30, obv_sub)
 
-    # 외인+기관 동시 매집 — 5점 보너스
-    sm_conf = _safe_get(sm, "score", "confluence") or 0
-    if sm_conf >= 20:
-        score += 5; hits.append("외인+기관 매집")
-
-    # === RSI 안전 — 20점 (75+ 페널티) ===
+    # === C. RSI 안전 (15점) ===
     rsi = _safe_get(nh, "rsi") or _safe_get(dv, "daily_rsi") or _safe_get(dv, "current_rsi")
     if isinstance(rsi, (int, float)):
-        if rsi < 50:
-            score += 20; hits.append(f"RSI {rsi:.0f} 매우 안전")
-        elif rsi < 60:
-            score += 18; hits.append(f"RSI {rsi:.0f} 안전")
+        if rsi < 55:
+            score += 15; hits.append(f"RSI {rsi:.0f} 매우 안전")
+        elif rsi < 65:
+            score += 12; hits.append(f"RSI {rsi:.0f} 안전")
         elif rsi < 70:
-            score += 12
+            score += 8
         elif rsi < 75:
-            score += 5
+            score += 3
         elif rsi < 80:
             score -= 5; penalties.append(f"RSI {rsi:.0f} 부담")
         else:
-            score -= 15; penalties.append(f"RSI {rsi:.0f} 과열")
+            score -= 12; penalties.append(f"RSI {rsi:.0f} 과열")
     else:
-        score += 8  # RSI 데이터 없음 = 중립
+        score += 5
 
-    # === 과속 안 함 — 15점 (30%+ 페널티) ===
+    # === D. 과속 안 함 (15점) ===
     ret_20d = _safe_get(nh, "ret_20d")
     if isinstance(ret_20d, (int, float)):
         if ret_20d < 5:
@@ -375,39 +395,54 @@ def _core_score(sm, nh, dv) -> dict[str, Any]:
         elif ret_20d < 35:
             pass
         else:
-            score -= 10; penalties.append(f"20일 +{ret_20d:.0f}% 과속")
+            score -= 8; penalties.append(f"20일 +{ret_20d:.0f}% 과속")
     else:
         score += 5
 
-    # === 매집 기간 — 10점 ===
+    # === E. 매집 기간 + 정배열 (10점) ===
     dur = _safe_get(sm, "accumulation", "duration") or 0
     if dur >= 400:
-        score += 10; hits.append(f"장기 매집 {dur}일")
+        score += 6; hits.append(f"장기 매집 {dur}일")
     elif dur >= 250:
-        score += 7; hits.append(f"매집 {dur}일")
-    elif dur >= 150:
         score += 4
+    elif dur >= 150:
+        score += 2
+    if _safe_get(sm, "metrics", "ma60_above_ma240") is True:
+        score += 4; hits.append("60>240선 정배열")
 
-    # === 출발 임박 / 실적 — 10점 ===
+    # === F. 출발 임박 + 실적 (10점) ===
     labels = set((sm or {}).get("labels") or [])
     if "🌅폭발임박" in labels and "⚡단타" in labels:
-        score += 8; hits.append("출발 동시 점등")
+        score += 6; hits.append("출발 동시 점등")
     elif "🌅폭발임박" in labels:
-        score += 5; hits.append("폭발 임박")
+        score += 4; hits.append("폭발 임박")
     elif "⚡단타" in labels:
-        score += 4
+        score += 3
     elif "🎯VCP" in labels:
-        score += 3; hits.append("VCP 진행")
+        score += 2; hits.append("VCP 진행")
 
-    # === 실적 가중 ===
-    if any(("적자전환" in lab) or ("💀" in lab) for lab in labels):
-        score -= 8; penalties.append("적자 전환")
-    elif any("적자" in lab for lab in labels):
-        score -= 4
-    elif any(("실적폭발" in lab) or ("🔥실적" in lab) for lab in labels):
+    if any(("실적폭발" in lab) or ("🔥실적" in lab) for lab in labels):
         score += 4; hits.append("실적 폭발")
     elif any(("흑자전환" in lab) or ("🔄흑자" in lab) for lab in labels):
         score += 3; hits.append("흑자 전환")
+    elif any(("적자전환" in lab) or ("💀" in lab) for lab in labels):
+        score -= 5; penalties.append("적자 전환")
+    elif any("적자" in lab for lab in labels):
+        score -= 3
+
+    # === G. 시총 (보너스 거의 없음, 극소형만 페널티) ===
+    mcap_won = _safe_get(sm, "marcap")
+    if isinstance(mcap_won, (int, float)) and mcap_won > 0:
+        mcap_eok = mcap_won / 1e8
+        if mcap_eok < 500:
+            score -= 5; penalties.append(f"극소형 {mcap_eok:.0f}억 (작전 위험)")
+        # 그 외 시총은 점수 영향 없음 — 대형주도 OK
+
+    # === H. 추세 검증 보너스 (5점) ===
+    if _safe_get(sm, "metrics", "is_52w_high") is True:
+        score += 3; hits.append("52주 신고가")
+    if nh and nh.get("is_prime_s") is True:
+        score += 2; hits.append(f"PRIME-S {nh.get('prime_s_sub') or ''}")
 
     score = max(0, min(120, score))
 
