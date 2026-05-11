@@ -136,6 +136,18 @@
     .badge.g60 { background: rgba(34,197,94,.2); color: #6ee7b7; border-color: rgba(34,197,94,.5); }
     .badge.g40 { background: rgba(245,158,11,.15); color: #fcd34d; border-color: rgba(245,158,11,.4); }
     .badge.g20 { background: rgba(138,151,192,.12); color: #a3afff; border-color: rgba(108,123,224,.3); }
+    .badge.c80 { background: linear-gradient(90deg, #ff3b30, #ff6b35); color: #fff; border-color: #ff3b30; box-shadow: 0 0 8px rgba(255,107,53,.4); }
+    .badge.c65 { background: linear-gradient(90deg, #ff6b35, #fbbf24); color: #fff; border-color: #ff6b35; }
+    .badge.c50 { background: rgba(251,191,36,.18); color: #fcd34d; border-color: rgba(251,191,36,.5); }
+    .badge.c35 { background: rgba(76,194,255,.12); color: #93c5fd; border-color: rgba(76,194,255,.3); }
+
+    .core-bd {
+      font-size: 12px; color: var(--mut); margin-bottom: 8px;
+      padding: 7px 9px; background: rgba(255,107,53,.06);
+      border: 1px dashed rgba(255,107,53,.3); border-radius: 6px;
+    }
+    .core-bd b { color: #fbbf24; }
+    .core-bd .pen { color: var(--bad); }
 
     .genuine-bd {
       font-size: 11px; color: var(--mut); margin-bottom: 8px;
@@ -322,7 +334,8 @@
     <label>정렬
       <select id="f-sort">
         <option value="default">기본(탭별)</option>
-        <option value="genuine">💎 진짜 갈놈 점수</option>
+        <option value="core">🚀 갈놈 코어 점수</option>
+        <option value="genuine">💎 진짜 갈놈 합성</option>
         <option value="score">합산 점수</option>
         <option value="price">가격 오름차순</option>
         <option value="price_desc">가격 내림차순</option>
@@ -438,7 +451,8 @@
       let list = (state.data.stocks || []).slice();
       // 카테고리
       if (state.cat === 'GENUINE') {
-        list = list.filter(s => (s.genuine_score || 0) >= 40);
+        // 💎 탭: 코어 35점 OR 합성 40점 이상 (관찰 등급 이상)
+        list = list.filter(s => (s.core_score || 0) >= 35 || (s.genuine_score || 0) >= 40);
       } else if (state.cat === 'A') {
         list = list.filter(s => s.category === 'A' || s.category === 'AB');
       } else if (state.cat === 'B') {
@@ -465,8 +479,10 @@
       }
       // 정렬
       if (state.cat === 'GENUINE' && state.sort === 'default') {
-        // 💎 탭 기본 정렬은 genuine_score 내림차순
-        list.sort((a,b) => (b.genuine_score||0) - (a.genuine_score||0));
+        // 💎 탭 기본 정렬은 코어 점수 내림차순 (진짜 갈 가능성)
+        list.sort((a,b) => (b.core_score||0) - (a.core_score||0));
+      } else if (state.sort === 'core') {
+        list.sort((a,b) => (b.core_score||0) - (a.core_score||0));
       } else if (state.sort === 'genuine') {
         list.sort((a,b) => (b.genuine_score||0) - (a.genuine_score||0));
       } else if (state.sort === 'score') {
@@ -490,6 +506,13 @@
       const gBd = s.genuine_breakdown || {};
       const gRank = s.genuine_rank_emoji || '';
       const gBadge = g >= 30 ? `<span class="badge g${g>=80?'80':g>=60?'60':g>=40?'40':'20'}">${gRank} ${g}점 ${s.genuine_rank||''}</span>` : '';
+      // 갈놈 코어 점수 (실제 갈 가능성)
+      const coreV = s.core_score || 0;
+      const coreEmoji = s.core_rank_emoji || '';
+      const coreBadge = coreV >= 35 ? `<span class="badge c${coreV>=80?'80':coreV>=65?'65':coreV>=50?'50':'35'}">${coreEmoji} 코어 ${coreV}</span>` : '';
+      const coreHits = (s.core_hits || []).slice(0, 4).join(' · ');
+      const corePens = (s.core_penalties || []).slice(0, 2).join(' · ');
+      const coreHtml = coreV >= 35 ? `<div class="core-bd"><b>🎯 코어 ${coreV}점 ${s.core_rank||''}</b> ${coreHits}${corePens ? ` <span class="pen">⚠️ ${corePens}</span>` : ''}</div>` : '';
       const themes = (s.themes || []).slice(0,3).map(t => `<span class="ticker">#${t}</span>`).join(' ');
       const signals = (s.signals_summary || []).map(l => `<div class="line">${l}</div>`).join('');
       const t = s.trading || {};
@@ -520,7 +543,7 @@
               <span class="name">${safe(s.name)}</span>
               <span class="ticker">${s.ticker} · ${safe(s.market)}</span>
             </div>
-            <div class="badges">${gBadge} ${vBadge} ${cBadge}</div>
+            <div class="badges">${coreBadge} ${gBadge} ${vBadge} ${cBadge}</div>
           </div>
           <div class="meta">
             <div>합산점수 <b>${s.combined_score}</b></div>
@@ -528,6 +551,7 @@
             <div>권장비중 <b>${s.position_size_pct}%</b></div>
             <div>소스 <b>${(s.sources || []).length}/3</b></div>
           </div>
+          ${coreHtml}
           ${g >= 30 ? `<div class="genuine-bd">매집 <b>${gBd.accumulation||0}</b>/30 · 출발 <b>${gBd.ignition||0}</b>/35 · 추세 <b>${gBd.trend||0}</b>/25 · 폭발력 <b>${gBd.explosion||0}</b>/10</div>` : ''}
           ${themes ? `<div class="signals"><div class="line">${themes}</div></div>` : ''}
           <div class="signals">${signals}</div>

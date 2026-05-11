@@ -299,6 +299,138 @@ def _genuine_score(sm, nh, dv) -> dict[str, Any]:
     }
 
 
+# === 🚀 갈놈 코어 점수 ========================================================
+# "신호 강도"가 아닌 "실제 갈 가능성"을 측정.
+# 핵심 조합: 소형주 + OBV 매집 + RSI 안전 + 과속 안 함 + 매집 길이 + 출발 임박.
+
+def _core_score(sm, nh, dv) -> dict[str, Any]:
+    score = 0
+    hits: list[str] = []
+    penalties: list[str] = []
+
+    # === 시총 — 35점 (소형주 폭발력) ===
+    mcap_won = _safe_get(sm, "marcap")
+    if isinstance(mcap_won, (int, float)) and mcap_won > 0:
+        mcap_eok = mcap_won / 1e8
+        if mcap_eok < 1000:
+            score += 30; hits.append(f"극소형 {mcap_eok:.0f}억")
+        elif mcap_eok < 2500:
+            score += 25; hits.append(f"초소형 {mcap_eok:.0f}억")
+        elif mcap_eok < 5000:
+            score += 18; hits.append(f"소형 {mcap_eok:.0f}억")
+        elif mcap_eok < 10000:
+            score += 10; hits.append(f"중소형 {mcap_eok:.0f}억")
+        elif mcap_eok < 30000:
+            score += 3
+        # 대형주는 0점
+
+    # === OBV / 매집 신호 — 30점 ===
+    dv_signals = (dv or {}).get("signals") or []
+    sig_text = " | ".join(dv_signals)
+    obv_sub = 0
+    if "OBV" in sig_text:
+        obv_sub += 18; hits.append("OBV 다이버전스")
+    if "거래량 선행 매집" in sig_text:
+        obv_sub += 8; hits.append("거래량 매집")
+    if "매집비율" in sig_text:
+        obv_sub += 5
+    if "Pocket Pivot" in sig_text:
+        obv_sub += 5; hits.append("Pocket Pivot")
+    if "20주선 안착" in sig_text:
+        obv_sub += 3
+    score += min(30, obv_sub)
+
+    # 외인+기관 동시 매집 — 5점 보너스
+    sm_conf = _safe_get(sm, "score", "confluence") or 0
+    if sm_conf >= 20:
+        score += 5; hits.append("외인+기관 매집")
+
+    # === RSI 안전 — 20점 (75+ 페널티) ===
+    rsi = _safe_get(nh, "rsi") or _safe_get(dv, "daily_rsi") or _safe_get(dv, "current_rsi")
+    if isinstance(rsi, (int, float)):
+        if rsi < 50:
+            score += 20; hits.append(f"RSI {rsi:.0f} 매우 안전")
+        elif rsi < 60:
+            score += 18; hits.append(f"RSI {rsi:.0f} 안전")
+        elif rsi < 70:
+            score += 12
+        elif rsi < 75:
+            score += 5
+        elif rsi < 80:
+            score -= 5; penalties.append(f"RSI {rsi:.0f} 부담")
+        else:
+            score -= 15; penalties.append(f"RSI {rsi:.0f} 과열")
+    else:
+        score += 8  # RSI 데이터 없음 = 중립
+
+    # === 과속 안 함 — 15점 (30%+ 페널티) ===
+    ret_20d = _safe_get(nh, "ret_20d")
+    if isinstance(ret_20d, (int, float)):
+        if ret_20d < 5:
+            score += 15; hits.append("최근 횡보 (잠재력)")
+        elif ret_20d < 15:
+            score += 12
+        elif ret_20d < 25:
+            score += 6
+        elif ret_20d < 35:
+            pass
+        else:
+            score -= 10; penalties.append(f"20일 +{ret_20d:.0f}% 과속")
+    else:
+        score += 5
+
+    # === 매집 기간 — 10점 ===
+    dur = _safe_get(sm, "accumulation", "duration") or 0
+    if dur >= 400:
+        score += 10; hits.append(f"장기 매집 {dur}일")
+    elif dur >= 250:
+        score += 7; hits.append(f"매집 {dur}일")
+    elif dur >= 150:
+        score += 4
+
+    # === 출발 임박 / 실적 — 10점 ===
+    labels = set((sm or {}).get("labels") or [])
+    if "🌅폭발임박" in labels and "⚡단타" in labels:
+        score += 8; hits.append("출발 동시 점등")
+    elif "🌅폭발임박" in labels:
+        score += 5; hits.append("폭발 임박")
+    elif "⚡단타" in labels:
+        score += 4
+    elif "🎯VCP" in labels:
+        score += 3; hits.append("VCP 진행")
+
+    # === 실적 가중 ===
+    if any(("적자전환" in lab) or ("💀" in lab) for lab in labels):
+        score -= 8; penalties.append("적자 전환")
+    elif any("적자" in lab for lab in labels):
+        score -= 4
+    elif any(("실적폭발" in lab) or ("🔥실적" in lab) for lab in labels):
+        score += 4; hits.append("실적 폭발")
+    elif any(("흑자전환" in lab) or ("🔄흑자" in lab) for lab in labels):
+        score += 3; hits.append("흑자 전환")
+
+    score = max(0, min(120, score))
+
+    if score >= 80:
+        rank = ("핵폭발", "🚀")
+    elif score >= 65:
+        rank = ("진짜 갈놈", "💥")
+    elif score >= 50:
+        rank = ("강력 후보", "🎯")
+    elif score >= 35:
+        rank = ("관찰", "🔍")
+    else:
+        rank = ("부적합", "")
+
+    return {
+        "score": score,
+        "rank": rank[0],
+        "rank_emoji": rank[1],
+        "hits": hits,
+        "penalties": penalties,
+    }
+
+
 def _classify(sm, nh, dv) -> tuple[str | None, int, int]:
     """A/B 분류 — 다중 소스 합의 필수.
        조건: 점수 매긴 소스가 2개 이상 ∧ 총점 ≥ 3.
@@ -464,6 +596,7 @@ def cross_validate(smart_money: dict, new_high: dict, divergence: dict) -> dict[
 
         category, a_sig, b_sig = _classify(sm, nh, dv)
         genuine = _genuine_score(sm, nh, dv)
+        core = _core_score(sm, nh, dv)
 
         # A/B 분류 실패 종목은 genuine_score 20점 이상일 때만 유지
         # (1중 검증이지만 강한 매집/추세 신호인 잠재력 종목)
@@ -587,6 +720,11 @@ def cross_validate(smart_money: dict, new_high: dict, divergence: dict) -> dict[
             "genuine_rank_emoji": genuine["rank_emoji"],
             "genuine_breakdown": genuine["breakdown"],
             "genuine_hits": genuine["hits"],
+            "core_score": core["score"],
+            "core_rank": core["rank"],
+            "core_rank_emoji": core["rank_emoji"],
+            "core_hits": core["hits"],
+            "core_penalties": core["penalties"],
             "metrics": {
                 "rsi": rsi_val,
                 "sm_score": sm_score,
