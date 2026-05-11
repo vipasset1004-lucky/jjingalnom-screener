@@ -444,11 +444,15 @@
       const a = stocks.filter(s => (s.category === 'A' || s.category === 'AB') && pass(s)).length;
       const b = stocks.filter(s => (s.category === 'B' || s.category === 'AB') && pass(s)).length;
       const v3 = stocks.filter(s => s.verification === 3 && pass(s)).length;
-      const genuine = stocks.filter(s => (s.genuine_score || 0) >= 40 && pass(s)).length;
+      const genuine = stocks.filter(s => ((s.core_score || 0) >= 35 || (s.genuine_score || 0) >= 40) && pass(s)).length;
+      const alpha = stocks.filter(s => (s.super_alpha_score || 0) >= 40 && pass(s)).length;
+      const bagger = stocks.filter(s => s.is_5bagger && pass(s)).length;
       document.getElementById('cnt-A').textContent = a;
       document.getElementById('cnt-B').textContent = b;
       document.getElementById('cnt-V3').textContent = v3;
       document.getElementById('cnt-GENUINE').textContent = genuine;
+      document.getElementById('cnt-ALPHA').textContent = alpha;
+      document.getElementById('cnt-BAGGER').textContent = bagger;
     }
 
     function renderStaleCheck() {
