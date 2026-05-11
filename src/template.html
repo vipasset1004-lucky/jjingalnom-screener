@@ -214,43 +214,52 @@
       .grid { grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 10px; }
     }
 
-    /* === 모바일 폰 (~640px) === */
+    /* === 모바일 폰 (~640px) — 폰트 크게 === */
     @media (max-width: 640px) {
-      h1 { font-size: 18px; }
-      h1 .sub { display: block; margin: 4px 0 0; }
-      header { padding: 12px 14px 8px; }
+      body { font-size: 16px; }
+      h1 { font-size: 22px; }
+      h1 .sub { display: block; margin: 4px 0 0; font-size: 13px; }
+      header { padding: 14px 14px 10px; }
       main { padding: 10px 12px 100px; }
-      .tabs { margin: 10px 12px 0; gap: 4px; }
-      .tab { padding: 9px 12px; font-size: 13px; }
+      .tabs { margin: 12px 12px 0; gap: 5px; }
+      .tab { padding: 11px 14px; font-size: 15px; }
+      .tab .count { font-size: 13px; }
       .filters {
-        padding: 8px 12px; gap: 6px;
+        padding: 10px 12px; gap: 8px;
         flex-direction: row; flex-wrap: wrap;
       }
-      .filters label { font-size: 11px; }
-      .filters select { font-size: 13px; padding: 7px 8px; max-width: 100%; }
-      .filters input[type=text] { font-size: 14px; flex: 1; min-width: 0; }
-      .filters .toggle { font-size: 12px; }
+      .filters label { font-size: 13px; }
+      .filters select { font-size: 15px; padding: 9px 10px; max-width: 100%; }
+      .filters input[type=text] { font-size: 16px; flex: 1; min-width: 0; padding: 9px 10px; }
+      .filters .toggle { font-size: 14px; }
 
       .regime { gap: 6px; }
-      .regime .chip { font-size: 11px; padding: 3px 8px; }
+      .regime .chip { font-size: 13px; padding: 5px 10px; }
 
-      .grid { grid-template-columns: 1fr; gap: 10px; }
-      .card { padding: 12px; border-radius: 12px; }
-      .card .name { font-size: 15px; }
-      .card .meta { font-size: 11px; grid-template-columns: 1fr 1fr; gap: 2px 8px; }
-      .levels { font-size: 11px; line-height: 1.6; }
-      .genuine-bd { font-size: 10px; padding: 5px 7px; }
-      .ext-links { gap: 5px; }
-      .ext-links a { padding: 5px 8px; font-size: 11px; }
-      .stale-warning { margin: 10px 12px 0; font-size: 11px; padding: 8px 10px; }
+      .grid { grid-template-columns: 1fr; gap: 12px; }
+      .card { padding: 14px; border-radius: 12px; }
+      .card .name { font-size: 18px; }
+      .card .ticker { font-size: 13px; }
+      .card .meta { font-size: 14px; grid-template-columns: 1fr 1fr; gap: 4px 12px; }
+      .card .badges { gap: 5px; }
+      .badge { font-size: 13px; padding: 3px 9px; }
+      .signals { font-size: 13px; }
+      .levels { font-size: 14px; line-height: 1.8; padding: 10px 12px; }
+      .genuine-bd { font-size: 13px; padding: 7px 10px; }
+      .footer-line { font-size: 14px; }
+      .ext-links { gap: 6px; }
+      .ext-links a { padding: 7px 10px; font-size: 13px; }
+      .block-reasons { font-size: 13px; padding: 7px 10px; }
+      .stale-warning { margin: 10px 12px 0; font-size: 13px; padding: 10px 12px; }
     }
 
     /* === 매우 작은 화면 (~380px, iPhone SE 등) === */
     @media (max-width: 380px) {
       .card .meta { grid-template-columns: 1fr; }
-      .filters label { font-size: 10px; }
-      .filters select { padding: 6px 8px; font-size: 12px; }
-      .tab { padding: 8px 10px; font-size: 12px; }
+      .filters label { font-size: 12px; }
+      .filters select { padding: 8px 9px; font-size: 14px; }
+      .tab { padding: 10px 12px; font-size: 14px; }
+      h1 { font-size: 20px; }
     }
 
     /* === 다크 모드 외 시스템 설정 대응 === */
