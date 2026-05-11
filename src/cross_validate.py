@@ -466,6 +466,142 @@ def _core_score(sm, nh, dv) -> dict[str, Any]:
     }
 
 
+# === 🚀 슈퍼 알파 점수 (백테스트 1125건/6년 검증 패턴 기반) =====================
+# new-high-screener의 backtest.py + supply_validate.py에서 도출:
+#   - PRIME (BULL × ATH × A+) = 백테스트로 입증된 가장 강한 alpha
+#   - 외인+기관 5일 누적 + 동시매매일 4+ = 진짜 매집
+#   - RVOL 2x / Stage1 위치 / MA20 이격 / Vol Dryup / MA5 위 / 페널티 0 = 슈퍼 조합
+#   - 5배 후보 = PRIME ∧ ATH ∧ vc_confirmed ∧ BULL_regime
+#     → 백테스트에서 +200% 도달률 70~80% (baseline 30% 대비 +40pp, p<0.05)
+
+def _super_alpha_score(sm, nh, dv) -> dict[str, Any]:
+    score = 0
+    hits: list[str] = []
+    is_5bagger = False
+
+    if not nh:
+        # new-high 미발견 = 슈퍼 알파 측정 불가
+        return {"score": 0, "rank": "N/A", "rank_emoji": "", "hits": [], "is_5bagger": False}
+
+    # === A. PRIME 조건 (최대 40점) ===
+    is_prime    = nh.get("is_prime") is True
+    is_prime_s  = nh.get("is_prime_s") is True
+    is_ath      = nh.get("is_ath") is True
+    grade       = nh.get("grade") or ""
+    regime      = nh.get("market_regime") or ""
+
+    a_sub = 0
+    if is_prime_s:
+        a_sub += 25; hits.append(f"PRIME-S {nh.get('prime_s_sub') or ''}")
+    elif is_prime:
+        a_sub += 18; hits.append("PRIME")
+    elif regime == "BULL" and is_ath:
+        a_sub += 12; hits.append("BULL × ATH")
+    elif is_ath:
+        a_sub += 6; hits.append("ATH")
+    elif regime == "BULL":
+        a_sub += 4
+
+    if grade in ("S", "S+"):
+        a_sub += 15
+    elif grade == "A+":
+        a_sub += 10; hits.append("A+ 등급")
+    elif grade == "A":
+        a_sub += 6
+
+    if regime == "BULL" and not (is_prime or is_prime_s):
+        a_sub += 5; hits.append("BULL regime")
+    score += min(40, a_sub)
+
+    # === B. 수급 강도 (최대 25점) — supply_validate 백테스트 공식 ===
+    supply = nh.get("supply") or {}
+    f5d = supply.get("foreigner_5d") or 0
+    o5d = supply.get("organ_5d") or 0
+    combo_days = supply.get("foreign_inst_combo_days") or 0
+
+    b_sub = 0
+    if f5d >= 500000:
+        b_sub += 8; hits.append(f"외인 5일 +{int(f5d/10000)}만주")
+    elif f5d >= 100000:
+        b_sub += 6
+    if o5d >= 500000:
+        b_sub += 7; hits.append(f"기관 5일 +{int(o5d/10000)}만주")
+    elif o5d >= 100000:
+        b_sub += 5
+    if combo_days >= 4:
+        b_sub += 8; hits.append(f"동시매매 {combo_days}일 (진짜 매집)")
+    elif combo_days >= 3:
+        b_sub += 5; hits.append(f"동시매매 {combo_days}일")
+    score += min(25, b_sub)
+
+    # === C. 슈퍼 알파 보조 신호 (최대 20점) ===
+    rvol = nh.get("rvol") or 0
+    if rvol >= 2.0:
+        score += 5; hits.append(f"RVOL {rvol:.1f}x")
+    elif rvol >= 1.5:
+        score += 2
+
+    pos_pct = nh.get("pos_pct")
+    above_30 = nh.get("above_30pct")
+    if isinstance(pos_pct, (int, float)) and pos_pct < 30 and above_30 is False:
+        score += 5; hits.append("Stage1 위치 (저점권)")
+    elif isinstance(pos_pct, (int, float)) and pos_pct < 60:
+        score += 2
+
+    ma20_dist = nh.get("ma20_dist_pct")
+    if isinstance(ma20_dist, (int, float)) and abs(ma20_dist) <= 5:
+        score += 4; hits.append("MA20 이격 ±5%")
+
+    if nh.get("vol_dried") is True:
+        score += 4; hits.append("거래량 고갈 (출발 직전)")
+
+    if nh.get("above_ma5") is True:
+        score += 2
+
+    # === D. 페널티 회피 (최대 10점) ===
+    penalty = _safe_get(nh, "score_detail", "penalty") or 0
+    penalty_abs = abs(penalty) if isinstance(penalty, (int, float)) else 0
+    if penalty_abs == 0:
+        score += 10; hits.append("페널티 0")
+    elif penalty_abs <= 5:
+        score += 7
+    elif penalty_abs <= 10:
+        score += 3
+
+    # === E. 검증 보조 (최대 5점) ===
+    if nh.get("vc_confirmed") is True:
+        score += 3; hits.append("VC 거래량 확인")
+    if nh.get("retest") is True:
+        score += 2; hits.append("Retest 76% 패턴")
+
+    # === 🏆 5배 후보 (백테스트 +200% 도달률 70%+) ===
+    is_5bagger = is_prime and is_ath and (nh.get("vc_confirmed") is True) and regime == "BULL"
+    if is_5bagger:
+        score = min(100, score + 5)  # 5배 후보 보너스 5점
+        hits.insert(0, "🚀 5배 후보 (백테스트 +200% 도달률 70%+)")
+
+    score = max(0, min(100, score))
+
+    if score >= 90:
+        rank = ("SUPER ALPHA", "🚀")
+    elif score >= 75:
+        rank = ("STRONG ALPHA", "💎")
+    elif score >= 60:
+        rank = ("ALPHA", "🎯")
+    elif score >= 40:
+        rank = ("WATCH", "🔍")
+    else:
+        rank = ("부적합", "")
+
+    return {
+        "score": score,
+        "rank": rank[0],
+        "rank_emoji": rank[1],
+        "hits": hits,
+        "is_5bagger": is_5bagger,
+    }
+
+
 def _classify(sm, nh, dv) -> tuple[str | None, int, int]:
     """A/B 분류 — 다중 소스 합의 필수.
        조건: 점수 매긴 소스가 2개 이상 ∧ 총점 ≥ 3.
@@ -576,14 +712,14 @@ def _pick_trading_levels(sm: Any, nh: Any, current_price: float | None) -> dict[
                 "horizon": rule.get("horizon"),
                 "note": rule.get("note"),
             }
-    # fallback
+    # fallback — 백테스트 1125건 최적값(−7/+20/+50)
     if current_price:
         return {
-            "source": "fallback_default",
+            "source": "fallback_backtest",
             "entry": current_price,
-            "stop": round(current_price * 0.95, 2),
-            "tp1": round(current_price * 1.15, 2),
-            "tp2": round(current_price * 1.30, 2),
+            "stop": round(current_price * 0.93, 2),
+            "tp1": round(current_price * 1.20, 2),
+            "tp2": round(current_price * 1.50, 2),
         }
     return {"source": "none"}
 
@@ -632,6 +768,7 @@ def cross_validate(smart_money: dict, new_high: dict, divergence: dict) -> dict[
         category, a_sig, b_sig = _classify(sm, nh, dv)
         genuine = _genuine_score(sm, nh, dv)
         core = _core_score(sm, nh, dv)
+        super_alpha = _super_alpha_score(sm, nh, dv)
 
         # A/B 분류 실패 종목은 genuine_score 20점 이상일 때만 유지
         # (1중 검증이지만 강한 매집/추세 신호인 잠재력 종목)
@@ -760,6 +897,11 @@ def cross_validate(smart_money: dict, new_high: dict, divergence: dict) -> dict[
             "core_rank_emoji": core["rank_emoji"],
             "core_hits": core["hits"],
             "core_penalties": core["penalties"],
+            "super_alpha_score": super_alpha["score"],
+            "super_alpha_rank": super_alpha["rank"],
+            "super_alpha_rank_emoji": super_alpha["rank_emoji"],
+            "super_alpha_hits": super_alpha["hits"],
+            "is_5bagger": super_alpha["is_5bagger"],
             "metrics": {
                 "rsi": rsi_val,
                 "sm_score": sm_score,
