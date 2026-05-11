@@ -34,15 +34,23 @@ jobs:
         run: python -m src.main
 
       - name: Commit results
+        continue-on-error: true   # 일시 500/네트워크 오류로 deploy까지 막지 않음
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add unified_results.json last_update.json
+          git add unified_results.json last_update.json index.html
           if git diff --cached --quiet; then
             echo "no changes"
           else
             git commit -m "scan: $(date -u +%Y-%m-%dT%H:%MZ)"
-            git push
+            for i in 1 2 3; do
+              if git push; then exit 0; fi
+              echo "push retry $i in 10s..."
+              sleep 10
+              git pull --rebase --autostash || true
+            done
+            echo "push failed after retries (deploy will continue with current artifact)"
+            exit 1
           fi
 
   deploy:
