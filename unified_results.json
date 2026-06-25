@@ -34,15 +34,15 @@
         "new_high",
         "divergence"
       ],
-      "combined_score": 68.0,
-      "current_price": 110840.0,
+      "combined_score": 59.5,
+      "current_price": 110845.0,
       "trading": {
         "source": "new_high",
-        "entry": 110840.0,
-        "stop": 103081.0,
-        "tp1": 133008.0,
-        "tp2": 166260.0,
-        "trailing": 110747.0
+        "entry": 110845.0,
+        "stop": 103086.0,
+        "tp1": 133014.0,
+        "tp2": 166268.0,
+        "trailing": 110746.0
       },
       "position_size_pct": 4.8,
       "action": "조심 분할",
@@ -54,18 +54,18 @@
       ],
       "block_reasons": [],
       "signals_summary": [
-        "🎯 new-high A+ 80 추세 진행형",
+        "🎯 new-high A 63 추세 진행형",
         "📈 divergence A 56 볼린저 스퀴즈"
       ],
-      "a_signal": 4,
+      "a_signal": 3,
       "b_signal": 2,
-      "genuine_score": 39,
+      "genuine_score": 37,
       "genuine_rank": "씨앗",
       "genuine_rank_emoji": "🌱",
       "genuine_breakdown": {
         "accumulation": 26,
         "ignition": 0,
-        "trend": 13,
+        "trend": 11,
         "explosion": 0
       },
       "genuine_hits": {
@@ -76,39 +76,36 @@
         ],
         "ignition": [],
         "trend": [
-          "PRIME-S eXplosive",
+          "PRIME",
           "ATH"
         ],
         "explosion": []
       },
-      "core_score": 45,
+      "core_score": 43,
       "core_rank": "관찰",
       "core_rank_emoji": "🔍",
       "core_hits": [
         "OBV 다이버전스",
-        "최근 횡보 (잠재력)",
-        "PRIME-S eXplosive"
+        "최근 횡보 (잠재력)"
       ],
       "core_penalties": [],
-      "super_alpha_score": 54,
-      "super_alpha_rank": "WATCH",
-      "super_alpha_rank_emoji": "🔍",
+      "super_alpha_score": 38,
+      "super_alpha_rank": "부적합",
+      "super_alpha_rank_emoji": "",
       "super_alpha_hits": [
-        "PRIME-S eXplosive",
-        "A+ 등급",
-        "RVOL 2.5x",
+        "PRIME",
         "Stage1 위치 (저점권)",
         "MA20 이격 ±5%"
       ],
       "is_5bagger": false,
       "metrics": {
-        "rsi": 67.3,
+        "rsi": 68.1,
         "sm_score": null,
-        "nh_score": 80,
+        "nh_score": 63,
         "dv_score": 56,
         "sm_labels": [],
         "nh_type_ko": "추세 진행형",
-        "nh_grade": "A+",
+        "nh_grade": "A",
         "dv_grade": "A"
       }
     },
@@ -740,89 +737,6 @@
       }
     },
     {
-      "ticker": "003490",
-      "name": "대한항공",
-      "market": "",
-      "themes": [
-        "항공",
-        "여행"
-      ],
-      "category": "watch",
-      "verification": 1,
-      "sources": [
-        "divergence"
-      ],
-      "combined_score": 57.0,
-      "current_price": 27950.0,
-      "trading": {
-        "source": "fallback_backtest",
-        "entry": 27950.0,
-        "stop": 25993.5,
-        "tp1": 33540.0,
-        "tp2": 41925.0
-      },
-      "position_size_pct": 3.0,
-      "action": "조심 분할",
-      "action_level": "cautious",
-      "action_emoji": "⚠️",
-      "action_reasons": [
-        "단일 소스 신호",
-        "추세 검증 부족",
-        "출발 신호 미발현",
-        "종합 점수 부족"
-      ],
-      "block_reasons": [],
-      "signals_summary": [
-        "📈 divergence A 57 Pocket Pivot 매수"
-      ],
-      "a_signal": 0,
-      "b_signal": 2,
-      "genuine_score": 20,
-      "genuine_rank": "씨앗",
-      "genuine_rank_emoji": "🌱",
-      "genuine_breakdown": {
-        "accumulation": 18,
-        "ignition": 0,
-        "trend": 0,
-        "explosion": 2
-      },
-      "genuine_hits": {
-        "accumulation": [
-          "Pocket Pivot",
-          "거래량 선행 매집",
-          "트렌드 구조"
-        ],
-        "ignition": [],
-        "trend": [],
-        "explosion": [
-          "미발견 강신호"
-        ]
-      },
-      "core_score": 27,
-      "core_rank": "부적합",
-      "core_rank_emoji": "",
-      "core_hits": [
-        "Pocket Pivot",
-        "RSI 58 안전"
-      ],
-      "core_penalties": [],
-      "super_alpha_score": 0,
-      "super_alpha_rank": "N/A",
-      "super_alpha_rank_emoji": "",
-      "super_alpha_hits": [],
-      "is_5bagger": false,
-      "metrics": {
-        "rsi": 58.0,
-        "sm_score": null,
-        "nh_score": null,
-        "dv_score": 57,
-        "sm_labels": [],
-        "nh_type_ko": null,
-        "nh_grade": null,
-        "dv_grade": "A"
-      }
-    },
-    {
       "ticker": "088350",
       "name": "한화생명",
       "market": "",
@@ -898,6 +812,89 @@
       "is_5bagger": false,
       "metrics": {
         "rsi": 46.6,
+        "sm_score": null,
+        "nh_score": null,
+        "dv_score": 57,
+        "sm_labels": [],
+        "nh_type_ko": null,
+        "nh_grade": null,
+        "dv_grade": "A"
+      }
+    },
+    {
+      "ticker": "003490",
+      "name": "대한항공",
+      "market": "",
+      "themes": [
+        "항공",
+        "여행"
+      ],
+      "category": "watch",
+      "verification": 1,
+      "sources": [
+        "divergence"
+      ],
+      "combined_score": 57.0,
+      "current_price": 27950.0,
+      "trading": {
+        "source": "fallback_backtest",
+        "entry": 27950.0,
+        "stop": 25993.5,
+        "tp1": 33540.0,
+        "tp2": 41925.0
+      },
+      "position_size_pct": 3.0,
+      "action": "조심 분할",
+      "action_level": "cautious",
+      "action_emoji": "⚠️",
+      "action_reasons": [
+        "단일 소스 신호",
+        "추세 검증 부족",
+        "출발 신호 미발현",
+        "종합 점수 부족"
+      ],
+      "block_reasons": [],
+      "signals_summary": [
+        "📈 divergence A 57 Pocket Pivot 매수"
+      ],
+      "a_signal": 0,
+      "b_signal": 2,
+      "genuine_score": 20,
+      "genuine_rank": "씨앗",
+      "genuine_rank_emoji": "🌱",
+      "genuine_breakdown": {
+        "accumulation": 18,
+        "ignition": 0,
+        "trend": 0,
+        "explosion": 2
+      },
+      "genuine_hits": {
+        "accumulation": [
+          "Pocket Pivot",
+          "거래량 선행 매집",
+          "트렌드 구조"
+        ],
+        "ignition": [],
+        "trend": [],
+        "explosion": [
+          "미발견 강신호"
+        ]
+      },
+      "core_score": 27,
+      "core_rank": "부적합",
+      "core_rank_emoji": "",
+      "core_hits": [
+        "Pocket Pivot",
+        "RSI 58 안전"
+      ],
+      "core_penalties": [],
+      "super_alpha_score": 0,
+      "super_alpha_rank": "N/A",
+      "super_alpha_rank_emoji": "",
+      "super_alpha_hits": [],
+      "is_5bagger": false,
+      "metrics": {
+        "rsi": 58.0,
         "sm_score": null,
         "nh_score": null,
         "dv_score": 57,
@@ -1901,7 +1898,7 @@
     }
   ],
   "meta": {
-    "generated_at": "2026-06-24T14:51:06.952773+00:00",
+    "generated_at": "2026-06-25T10:19:49.452005+00:00",
     "sources": {
       "smart_money": {
         "ok": true,
@@ -1910,7 +1907,7 @@
       },
       "new_high": {
         "ok": true,
-        "scan_at": "2026-06-24T23:20:34.274013",
+        "scan_at": "2026-06-25T19:17:48.554512",
         "error": null
       },
       "divergence": {
