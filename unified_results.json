@@ -4,7 +4,7 @@
     "smart_money_mode": "neutral",
     "smart_money_label": "⚖ 중립",
     "smart_money_advice": "눌림목·매집 종목 위주, 신중 진입",
-    "new_high_breadth_trend": "▼",
+    "new_high_breadth_trend": "─",
     "new_high_breadth_scan": 0.3
   },
   "counts": {
@@ -35,15 +35,15 @@
         "new_high",
         "divergence"
       ],
-      "combined_score": 37.0,
-      "current_price": 21800.0,
+      "combined_score": 40.0,
+      "current_price": 21150.0,
       "trading": {
         "source": "new_high",
-        "entry": 21800.0,
-        "stop": 20274.0,
-        "tp1": 26160.0,
-        "tp2": 32700.0,
-        "trailing": 17690.0
+        "entry": 21150.0,
+        "stop": 19670.0,
+        "tp1": 25380.0,
+        "tp2": 31725.0,
+        "trailing": 18012.0
       },
       "position_size_pct": 7.2,
       "action": "회피",
@@ -59,18 +59,18 @@
       ],
       "signals_summary": [
         "⚡ smart-money 🔥실적폭발",
-        "🎯 new-high A 65 추세 진행형",
+        "🎯 new-high A+ 74 추세 진행형",
         "📈 divergence C 35 OBV 매집 다이버전스"
       ],
-      "a_signal": 3,
+      "a_signal": 4,
       "b_signal": 2,
-      "genuine_score": 41,
+      "genuine_score": 43,
       "genuine_rank": "레이더",
       "genuine_rank_emoji": "🔍",
       "genuine_breakdown": {
         "accumulation": 25,
         "ignition": 0,
-        "trend": 15,
+        "trend": 17,
         "explosion": 1
       },
       "genuine_hits": {
@@ -82,43 +82,45 @@
         "ignition": [],
         "trend": [
           "Trend Template 8/8",
-          "PRIME",
+          "PRIME-S eXplosive",
           "ATH"
         ],
         "explosion": []
       },
-      "core_score": 29,
+      "core_score": 31,
       "core_rank": "부적합",
       "core_rank_emoji": "",
       "core_hits": [
         "OBV 다이버전스",
-        "RSI 62 안전",
+        "RSI 60 안전",
         "60>240선 정배열",
-        "실적 폭발"
+        "실적 폭발",
+        "PRIME-S eXplosive"
       ],
       "core_penalties": [
         "외인/기관 순매도",
-        "20일 +43% 과속"
+        "20일 +44% 과속"
       ],
-      "super_alpha_score": 41,
+      "super_alpha_score": 52,
       "super_alpha_rank": "WATCH",
       "super_alpha_rank_emoji": "🔍",
       "super_alpha_hits": [
-        "PRIME",
+        "PRIME-S eXplosive",
+        "A+ 등급",
         "RVOL 3.7x",
         "거래량 고갈 (출발 직전)"
       ],
       "is_5bagger": false,
       "metrics": {
-        "rsi": 62.2,
+        "rsi": 59.6,
         "sm_score": 11.0,
-        "nh_score": 65,
+        "nh_score": 74,
         "dv_score": 35,
         "sm_labels": [
           "🔥실적폭발"
         ],
         "nh_type_ko": "추세 진행형",
-        "nh_grade": "A",
+        "nh_grade": "A+",
         "dv_grade": "C"
       }
     },
@@ -1942,7 +1944,7 @@
     }
   ],
   "meta": {
-    "generated_at": "2026-06-30T14:39:37.393423+00:00",
+    "generated_at": "2026-07-01T10:48:12.419812+00:00",
     "sources": {
       "smart_money": {
         "ok": true,
@@ -1951,7 +1953,7 @@
       },
       "new_high": {
         "ok": true,
-        "scan_at": "2026-06-30T23:09:20.371504",
+        "scan_at": "2026-07-01T19:45:14.535810",
         "error": null
       },
       "divergence": {
