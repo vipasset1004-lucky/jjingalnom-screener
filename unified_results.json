@@ -4,126 +4,23 @@
     "smart_money_mode": "neutral",
     "smart_money_label": "⚖ 중립",
     "smart_money_advice": "눌림목·매집 종목 위주, 신중 진입",
-    "new_high_breadth_trend": "─",
-    "new_high_breadth_scan": 0.3
+    "new_high_breadth_trend": "▼",
+    "new_high_breadth_scan": 0.0
   },
   "counts": {
     "total": 29,
     "by_verification": {
-      "3": 1,
-      "2": 10,
+      "3": 0,
+      "2": 11,
       "1": 18
     },
     "by_category": {
-      "A": 1,
+      "A": 0,
       "B": 1,
       "AB": 0
     }
   },
   "stocks": [
-    {
-      "ticker": "019210",
-      "name": "와이지-원",
-      "market": "KOSDAQ",
-      "themes": [
-        "바이오"
-      ],
-      "category": "A",
-      "verification": 3,
-      "sources": [
-        "smart_money",
-        "new_high",
-        "divergence"
-      ],
-      "combined_score": 40.3,
-      "current_price": 21150.0,
-      "trading": {
-        "source": "new_high",
-        "entry": 21150.0,
-        "stop": 19670.0,
-        "tp1": 25380.0,
-        "tp2": 31725.0,
-        "trailing": 18012.0
-      },
-      "position_size_pct": 9.6,
-      "action": "회피",
-      "action_level": "avoid",
-      "action_emoji": "⛔",
-      "action_reasons": [
-        "divergence 과열",
-        "실패 돌파"
-      ],
-      "block_reasons": [
-        "divergence 과열",
-        "실패 돌파"
-      ],
-      "signals_summary": [
-        "⚡ smart-money 🔥실적폭발",
-        "🎯 new-high A+ 74 추세 진행형",
-        "📈 divergence C 35 OBV 매집 다이버전스"
-      ],
-      "a_signal": 4,
-      "b_signal": 2,
-      "genuine_score": 43,
-      "genuine_rank": "레이더",
-      "genuine_rank_emoji": "🔍",
-      "genuine_breakdown": {
-        "accumulation": 25,
-        "ignition": 0,
-        "trend": 17,
-        "explosion": 1
-      },
-      "genuine_hits": {
-        "accumulation": [
-          "OBV 다이버전스",
-          "거래량 선행 매집",
-          "트렌드 구조"
-        ],
-        "ignition": [],
-        "trend": [
-          "Trend Template 8/8",
-          "PRIME-S eXplosive",
-          "ATH"
-        ],
-        "explosion": []
-      },
-      "core_score": 31,
-      "core_rank": "부적합",
-      "core_rank_emoji": "",
-      "core_hits": [
-        "OBV 다이버전스",
-        "RSI 60 안전",
-        "60>240선 정배열",
-        "실적 폭발",
-        "PRIME-S eXplosive"
-      ],
-      "core_penalties": [
-        "외인/기관 순매도",
-        "20일 +44% 과속"
-      ],
-      "super_alpha_score": 52,
-      "super_alpha_rank": "WATCH",
-      "super_alpha_rank_emoji": "🔍",
-      "super_alpha_hits": [
-        "PRIME-S eXplosive",
-        "A+ 등급",
-        "RVOL 3.7x",
-        "거래량 고갈 (출발 직전)"
-      ],
-      "is_5bagger": false,
-      "metrics": {
-        "rsi": 59.6,
-        "sm_score": 12.0,
-        "nh_score": 74,
-        "dv_score": 35,
-        "sm_labels": [
-          "🔥실적폭발"
-        ],
-        "nh_type_ko": "추세 진행형",
-        "nh_grade": "A+",
-        "dv_grade": "C"
-      }
-    },
     {
       "ticker": "003490",
       "name": "대한항공",
@@ -1014,6 +911,92 @@
       }
     },
     {
+      "ticker": "019210",
+      "name": "와이지-원",
+      "market": "KOSDAQ",
+      "themes": [
+        "바이오"
+      ],
+      "category": "watch",
+      "verification": 2,
+      "sources": [
+        "smart_money",
+        "divergence"
+      ],
+      "combined_score": 23.5,
+      "current_price": 17640.0,
+      "trading": {
+        "source": "fallback_backtest",
+        "entry": 17640.0,
+        "stop": 16405.2,
+        "tp1": 21168.0,
+        "tp2": 26460.0
+      },
+      "position_size_pct": 6.4,
+      "action": "회피",
+      "action_level": "avoid",
+      "action_emoji": "⛔",
+      "action_reasons": [
+        "divergence 과열"
+      ],
+      "block_reasons": [
+        "divergence 과열"
+      ],
+      "signals_summary": [
+        "⚡ smart-money 🔥실적폭발",
+        "📈 divergence C 35 OBV 매집 다이버전스"
+      ],
+      "a_signal": 2,
+      "b_signal": 2,
+      "genuine_score": 26,
+      "genuine_rank": "씨앗",
+      "genuine_rank_emoji": "🌱",
+      "genuine_breakdown": {
+        "accumulation": 25,
+        "ignition": 0,
+        "trend": 0,
+        "explosion": 1
+      },
+      "genuine_hits": {
+        "accumulation": [
+          "OBV 다이버전스",
+          "거래량 선행 매집",
+          "트렌드 구조"
+        ],
+        "ignition": [],
+        "trend": [],
+        "explosion": []
+      },
+      "core_score": 38,
+      "core_rank": "관찰",
+      "core_rank_emoji": "🔍",
+      "core_hits": [
+        "OBV 다이버전스",
+        "60>240선 정배열",
+        "실적 폭발"
+      ],
+      "core_penalties": [
+        "외인/기관 순매도"
+      ],
+      "super_alpha_score": 0,
+      "super_alpha_rank": "N/A",
+      "super_alpha_rank_emoji": "",
+      "super_alpha_hits": [],
+      "is_5bagger": false,
+      "metrics": {
+        "rsi": 67.4,
+        "sm_score": 12.0,
+        "nh_score": null,
+        "dv_score": 35,
+        "sm_labels": [
+          "🔥실적폭발"
+        ],
+        "nh_type_ko": null,
+        "nh_grade": null,
+        "dv_grade": "C"
+      }
+    },
+    {
       "ticker": "101160",
       "name": "월덱스",
       "market": "KOSDAQ",
@@ -1777,89 +1760,6 @@
       }
     },
     {
-      "ticker": "036800",
-      "name": "나이스정보통신",
-      "market": "",
-      "themes": [
-        "핀테크",
-        "결제"
-      ],
-      "category": "watch",
-      "verification": 1,
-      "sources": [
-        "divergence"
-      ],
-      "combined_score": 32.0,
-      "current_price": 28000.0,
-      "trading": {
-        "source": "fallback_backtest",
-        "entry": 28000.0,
-        "stop": 26040.0,
-        "tp1": 33600.0,
-        "tp2": 42000.0
-      },
-      "position_size_pct": 4.0,
-      "action": "조심 분할",
-      "action_level": "cautious",
-      "action_emoji": "⚠️",
-      "action_reasons": [
-        "단일 소스 신호",
-        "추세 검증 부족",
-        "출발 신호 미발현",
-        "종합 점수 부족"
-      ],
-      "block_reasons": [],
-      "signals_summary": [
-        "📈 divergence C 32 OBV 매집 다이버전스"
-      ],
-      "a_signal": 2,
-      "b_signal": 2,
-      "genuine_score": 27,
-      "genuine_rank": "씨앗",
-      "genuine_rank_emoji": "🌱",
-      "genuine_breakdown": {
-        "accumulation": 25,
-        "ignition": 0,
-        "trend": 0,
-        "explosion": 2
-      },
-      "genuine_hits": {
-        "accumulation": [
-          "OBV 다이버전스",
-          "거래량 선행 매집",
-          "트렌드 구조"
-        ],
-        "ignition": [],
-        "trend": [],
-        "explosion": [
-          "미발견 강신호"
-        ]
-      },
-      "core_score": 37,
-      "core_rank": "관찰",
-      "core_rank_emoji": "🔍",
-      "core_hits": [
-        "OBV 다이버전스",
-        "RSI 60 안전"
-      ],
-      "core_penalties": [],
-      "super_alpha_score": 0,
-      "super_alpha_rank": "N/A",
-      "super_alpha_rank_emoji": "",
-      "super_alpha_hits": [],
-      "is_5bagger": false,
-      "metrics": {
-        "rsi": 59.6,
-        "sm_score": null,
-        "nh_score": null,
-        "dv_score": 32,
-        "sm_labels": [],
-        "nh_type_ko": null,
-        "nh_grade": null,
-        "dv_grade": "C"
-      }
-    },
-    {
       "ticker": "012510",
       "name": "더존비즈온",
       "market": "",
@@ -1933,6 +1833,89 @@
       "is_5bagger": false,
       "metrics": {
         "rsi": 50.0,
+        "sm_score": null,
+        "nh_score": null,
+        "dv_score": 32,
+        "sm_labels": [],
+        "nh_type_ko": null,
+        "nh_grade": null,
+        "dv_grade": "C"
+      }
+    },
+    {
+      "ticker": "036800",
+      "name": "나이스정보통신",
+      "market": "",
+      "themes": [
+        "핀테크",
+        "결제"
+      ],
+      "category": "watch",
+      "verification": 1,
+      "sources": [
+        "divergence"
+      ],
+      "combined_score": 32.0,
+      "current_price": 28000.0,
+      "trading": {
+        "source": "fallback_backtest",
+        "entry": 28000.0,
+        "stop": 26040.0,
+        "tp1": 33600.0,
+        "tp2": 42000.0
+      },
+      "position_size_pct": 4.0,
+      "action": "조심 분할",
+      "action_level": "cautious",
+      "action_emoji": "⚠️",
+      "action_reasons": [
+        "단일 소스 신호",
+        "추세 검증 부족",
+        "출발 신호 미발현",
+        "종합 점수 부족"
+      ],
+      "block_reasons": [],
+      "signals_summary": [
+        "📈 divergence C 32 OBV 매집 다이버전스"
+      ],
+      "a_signal": 2,
+      "b_signal": 2,
+      "genuine_score": 27,
+      "genuine_rank": "씨앗",
+      "genuine_rank_emoji": "🌱",
+      "genuine_breakdown": {
+        "accumulation": 25,
+        "ignition": 0,
+        "trend": 0,
+        "explosion": 2
+      },
+      "genuine_hits": {
+        "accumulation": [
+          "OBV 다이버전스",
+          "거래량 선행 매집",
+          "트렌드 구조"
+        ],
+        "ignition": [],
+        "trend": [],
+        "explosion": [
+          "미발견 강신호"
+        ]
+      },
+      "core_score": 37,
+      "core_rank": "관찰",
+      "core_rank_emoji": "🔍",
+      "core_hits": [
+        "OBV 다이버전스",
+        "RSI 60 안전"
+      ],
+      "core_penalties": [],
+      "super_alpha_score": 0,
+      "super_alpha_rank": "N/A",
+      "super_alpha_rank_emoji": "",
+      "super_alpha_hits": [],
+      "is_5bagger": false,
+      "metrics": {
+        "rsi": 59.6,
         "sm_score": null,
         "nh_score": null,
         "dv_score": 32,
@@ -2541,7 +2524,7 @@
     }
   ],
   "meta": {
-    "generated_at": "2026-07-01T15:09:16.539195+00:00",
+    "generated_at": "2026-07-02T10:14:18.369867+00:00",
     "sources": {
       "smart_money": {
         "ok": true,
@@ -2550,7 +2533,7 @@
       },
       "new_high": {
         "ok": true,
-        "scan_at": "2026-07-01T23:25:33.982952",
+        "scan_at": "2026-07-02T19:12:58.850311",
         "error": null
       },
       "divergence": {
