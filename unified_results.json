@@ -4,116 +4,23 @@
     "smart_money_mode": "defensive",
     "smart_money_label": "🛡 방어",
     "smart_money_advice": "현금 비중 확대, 시장 대비 강한 종목만",
-    "new_high_breadth_trend": "─",
-    "new_high_breadth_scan": 0.3
+    "new_high_breadth_trend": "▼",
+    "new_high_breadth_scan": 0.2
   },
   "counts": {
-    "total": 17,
+    "total": 15,
     "by_verification": {
-      "3": 1,
-      "2": 6,
+      "3": 0,
+      "2": 5,
       "1": 10
     },
     "by_category": {
-      "A": 3,
-      "B": 2,
+      "A": 2,
+      "B": 1,
       "AB": 0
     }
   },
   "stocks": [
-    {
-      "ticker": "055550",
-      "name": "신한지주",
-      "market": "KOSPI",
-      "themes": [
-        "금융"
-      ],
-      "category": "A",
-      "verification": 3,
-      "sources": [
-        "smart_money",
-        "new_high",
-        "divergence"
-      ],
-      "combined_score": 42.8,
-      "current_price": 107700.0,
-      "trading": {
-        "source": "new_high",
-        "entry": 107700.0,
-        "stop": 100161.0,
-        "tp1": 129240.0,
-        "tp2": 161550.0,
-        "trailing": 99790.0
-      },
-      "position_size_pct": 4.8,
-      "action": "조심 분할",
-      "action_level": "cautious",
-      "action_emoji": "⚠️",
-      "action_reasons": [
-        "종합 점수 부족"
-      ],
-      "block_reasons": [],
-      "signals_summary": [
-        "⚡ smart-money ↗️실적증가",
-        "🎯 new-high A+ 71 눌림 재돌파형",
-        "📈 divergence C 34 상대강도 가속"
-      ],
-      "a_signal": 4,
-      "b_signal": 1,
-      "genuine_score": 17,
-      "genuine_rank": "미관심",
-      "genuine_rank_emoji": "",
-      "genuine_breakdown": {
-        "accumulation": 3,
-        "ignition": 0,
-        "trend": 13,
-        "explosion": 1
-      },
-      "genuine_hits": {
-        "accumulation": [
-          "트렌드 구조"
-        ],
-        "ignition": [],
-        "trend": [
-          "PRIME-S Safe",
-          "ATH"
-        ],
-        "explosion": []
-      },
-      "core_score": 33,
-      "core_rank": "부적합",
-      "core_rank_emoji": "",
-      "core_hits": [
-        "RSI 63 안전",
-        "52주 신고가",
-        "PRIME-S Safe"
-      ],
-      "core_penalties": [
-        "외인/기관 순매도"
-      ],
-      "super_alpha_score": 54,
-      "super_alpha_rank": "WATCH",
-      "super_alpha_rank_emoji": "🔍",
-      "super_alpha_hits": [
-        "PRIME-S Safe",
-        "A+ 등급",
-        "기관 5일 +149만주",
-        "페널티 0"
-      ],
-      "is_5bagger": false,
-      "metrics": {
-        "rsi": 62.7,
-        "sm_score": 23.3,
-        "nh_score": 71,
-        "dv_score": 34,
-        "sm_labels": [
-          "↗️실적증가"
-        ],
-        "nh_type_ko": "눌림 재돌파형",
-        "nh_grade": "A+",
-        "dv_grade": "C"
-      }
-    },
     {
       "ticker": "003490",
       "name": "대한항공",
@@ -205,93 +112,6 @@
         "nh_type_ko": null,
         "nh_grade": null,
         "dv_grade": "A"
-      }
-    },
-    {
-      "ticker": "240810",
-      "name": "원익IPS",
-      "market": "",
-      "themes": [
-        "반도체장비"
-      ],
-      "category": "B",
-      "verification": 2,
-      "sources": [
-        "new_high",
-        "divergence"
-      ],
-      "combined_score": 43.5,
-      "current_price": 124500.0,
-      "trading": {
-        "source": "new_high",
-        "entry": 124500.0,
-        "stop": 115785.0,
-        "tp1": 149400.0,
-        "tp2": 186750.0,
-        "trailing": 152260.0
-      },
-      "position_size_pct": 3.2,
-      "action": "조심 분할",
-      "action_level": "cautious",
-      "action_emoji": "⚠️",
-      "action_reasons": [
-        "종합 점수 부족"
-      ],
-      "block_reasons": [],
-      "signals_summary": [
-        "🎯 new-high A 58 눌림 재돌파형",
-        "📈 divergence C 29 거래량 선행 매집"
-      ],
-      "a_signal": 2,
-      "b_signal": 4,
-      "genuine_score": 16,
-      "genuine_rank": "미관심",
-      "genuine_rank_emoji": "",
-      "genuine_breakdown": {
-        "accumulation": 11,
-        "ignition": 0,
-        "trend": 5,
-        "explosion": 0
-      },
-      "genuine_hits": {
-        "accumulation": [
-          "거래량 선행 매집",
-          "20주선 안착"
-        ],
-        "ignition": [],
-        "trend": [
-          "PRIME",
-          "ATH"
-        ],
-        "explosion": []
-      },
-      "core_score": 32,
-      "core_rank": "부적합",
-      "core_rank_emoji": "",
-      "core_hits": [
-        "거래량 선행 매집",
-        "RSI 43 매우 안전"
-      ],
-      "core_penalties": [],
-      "super_alpha_score": 41,
-      "super_alpha_rank": "WATCH",
-      "super_alpha_rank_emoji": "🔍",
-      "super_alpha_hits": [
-        "PRIME",
-        "외인 5일 +77만주",
-        "RVOL 3.3x",
-        "거래량 고갈 (출발 직전)"
-      ],
-      "is_5bagger": false,
-      "metrics": {
-        "rsi": 42.9,
-        "sm_score": null,
-        "nh_score": 58,
-        "dv_score": 29,
-        "sm_labels": [],
-        "nh_type_ko": "눌림 재돌파형",
-        "nh_grade": "A",
-        "dv_grade": "C"
       }
     },
     {
@@ -1474,7 +1294,7 @@
     }
   ],
   "meta": {
-    "generated_at": "2026-07-06T15:52:40.267593+00:00",
+    "generated_at": "2026-07-07T10:31:01.898110+00:00",
     "sources": {
       "smart_money": {
         "ok": true,
@@ -1483,7 +1303,7 @@
       },
       "new_high": {
         "ok": true,
-        "scan_at": "2026-07-07T00:22:11.045410",
+        "scan_at": "2026-07-07T19:28:39.806872",
         "error": null
       },
       "divergence": {
