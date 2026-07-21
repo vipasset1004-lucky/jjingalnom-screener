@@ -172,12 +172,10 @@
         "trend": [],
         "explosion": []
       },
-      "core_score": 31,
+      "core_score": 27,
       "core_rank": "부적합",
       "core_rank_emoji": "",
-      "core_hits": [
-        "RSI 58 안전"
-      ],
+      "core_hits": [],
       "core_penalties": [
         "외인/기관 순매도"
       ],
@@ -187,7 +185,7 @@
       "super_alpha_hits": [],
       "is_5bagger": false,
       "metrics": {
-        "rsi": 58.0,
+        "rsi": 65.6,
         "sm_score": 38.2,
         "nh_score": null,
         "dv_score": 40,
@@ -262,7 +260,7 @@
       "core_rank_emoji": "🔍",
       "core_hits": [
         "OBV 다이버전스",
-        "RSI 59 안전"
+        "RSI 63 안전"
       ],
       "core_penalties": [
         "외인/기관 순매도"
@@ -273,7 +271,7 @@
       "super_alpha_hits": [],
       "is_5bagger": false,
       "metrics": {
-        "rsi": 58.6,
+        "rsi": 63.2,
         "sm_score": 17.7,
         "nh_score": null,
         "dv_score": 51,
@@ -320,7 +318,7 @@
         "⚡ smart-money 📈실적급증",
         "📈 divergence C 35 OBV 매집 다이버전스"
       ],
-      "a_signal": 1,
+      "a_signal": 2,
       "b_signal": 2,
       "genuine_score": 24,
       "genuine_rank": "씨앗",
@@ -347,7 +345,7 @@
       "core_rank_emoji": "🔍",
       "core_hits": [
         "OBV 다이버전스",
-        "RSI 57 안전"
+        "RSI 59 안전"
       ],
       "core_penalties": [
         "외인/기관 순매도"
@@ -358,7 +356,7 @@
       "super_alpha_hits": [],
       "is_5bagger": false,
       "metrics": {
-        "rsi": 57.1,
+        "rsi": 59.2,
         "sm_score": 32.2,
         "nh_score": null,
         "dv_score": 35,
@@ -442,7 +440,7 @@
       "super_alpha_hits": [],
       "is_5bagger": false,
       "metrics": {
-        "rsi": 43.6,
+        "rsi": 44.4,
         "sm_score": 14.6,
         "nh_score": null,
         "dv_score": 21,
@@ -611,7 +609,7 @@
       "super_alpha_hits": [],
       "is_5bagger": false,
       "metrics": {
-        "rsi": 68.8,
+        "rsi": 65.0,
         "sm_score": null,
         "nh_score": null,
         "dv_score": 48,
@@ -963,6 +961,86 @@
       }
     },
     {
+      "ticker": "002960",
+      "name": "한국쉘석유",
+      "market": "",
+      "themes": [
+        "정유"
+      ],
+      "category": "watch",
+      "verification": 1,
+      "sources": [
+        "divergence"
+      ],
+      "combined_score": 31.0,
+      "current_price": 501000.0,
+      "trading": {
+        "source": "fallback_backtest",
+        "entry": 501000.0,
+        "stop": 465930.0,
+        "tp1": 601200.0,
+        "tp2": 751500.0
+      },
+      "position_size_pct": 2.0,
+      "action": "회피",
+      "action_level": "avoid",
+      "action_emoji": "⛔",
+      "action_reasons": [
+        "BEAR장 + 단일 검증"
+      ],
+      "block_reasons": [
+        "BEAR장 + 단일 검증"
+      ],
+      "signals_summary": [
+        "📈 divergence C 31 OBV 매집 다이버전스"
+      ],
+      "a_signal": 0,
+      "b_signal": 2,
+      "genuine_score": 24,
+      "genuine_rank": "씨앗",
+      "genuine_rank_emoji": "🌱",
+      "genuine_breakdown": {
+        "accumulation": 22,
+        "ignition": 0,
+        "trend": 0,
+        "explosion": 2
+      },
+      "genuine_hits": {
+        "accumulation": [
+          "OBV 다이버전스",
+          "거래량 선행 매집"
+        ],
+        "ignition": [],
+        "trend": [],
+        "explosion": [
+          "미발견 강신호"
+        ]
+      },
+      "core_score": 37,
+      "core_rank": "관찰",
+      "core_rank_emoji": "🔍",
+      "core_hits": [
+        "OBV 다이버전스",
+        "RSI 64 안전"
+      ],
+      "core_penalties": [],
+      "super_alpha_score": 0,
+      "super_alpha_rank": "N/A",
+      "super_alpha_rank_emoji": "",
+      "super_alpha_hits": [],
+      "is_5bagger": false,
+      "metrics": {
+        "rsi": 63.6,
+        "sm_score": null,
+        "nh_score": null,
+        "dv_score": 31,
+        "sm_labels": [],
+        "nh_type_ko": null,
+        "nh_grade": null,
+        "dv_grade": "C"
+      }
+    },
+    {
       "ticker": "217590",
       "name": "티엠씨",
       "market": "KOSPI",
@@ -1045,85 +1123,6 @@
         "nh_type_ko": null,
         "nh_grade": null,
         "dv_grade": null
-      }
-    },
-    {
-      "ticker": "002960",
-      "name": "한국쉘석유",
-      "market": "",
-      "themes": [
-        "정유"
-      ],
-      "category": "watch",
-      "verification": 1,
-      "sources": [
-        "divergence"
-      ],
-      "combined_score": 31.0,
-      "current_price": 501000.0,
-      "trading": {
-        "source": "fallback_backtest",
-        "entry": 501000.0,
-        "stop": 465930.0,
-        "tp1": 601200.0,
-        "tp2": 751500.0
-      },
-      "position_size_pct": 2.0,
-      "action": "회피",
-      "action_level": "avoid",
-      "action_emoji": "⛔",
-      "action_reasons": [
-        "BEAR장 + 단일 검증"
-      ],
-      "block_reasons": [
-        "BEAR장 + 단일 검증"
-      ],
-      "signals_summary": [
-        "📈 divergence C 31 OBV 매집 다이버전스"
-      ],
-      "a_signal": 0,
-      "b_signal": 2,
-      "genuine_score": 24,
-      "genuine_rank": "씨앗",
-      "genuine_rank_emoji": "🌱",
-      "genuine_breakdown": {
-        "accumulation": 22,
-        "ignition": 0,
-        "trend": 0,
-        "explosion": 2
-      },
-      "genuine_hits": {
-        "accumulation": [
-          "OBV 다이버전스",
-          "거래량 선행 매집"
-        ],
-        "ignition": [],
-        "trend": [],
-        "explosion": [
-          "미발견 강신호"
-        ]
-      },
-      "core_score": 28,
-      "core_rank": "부적합",
-      "core_rank_emoji": "",
-      "core_hits": [
-        "OBV 다이버전스"
-      ],
-      "core_penalties": [],
-      "super_alpha_score": 0,
-      "super_alpha_rank": "N/A",
-      "super_alpha_rank_emoji": "",
-      "super_alpha_hits": [],
-      "is_5bagger": false,
-      "metrics": {
-        "rsi": 71.2,
-        "sm_score": null,
-        "nh_score": null,
-        "dv_score": 31,
-        "sm_labels": [],
-        "nh_type_ko": null,
-        "nh_grade": null,
-        "dv_grade": "C"
       }
     },
     {
@@ -1360,7 +1359,7 @@
       "core_hits": [
         "OBV 다이버전스",
         "거래량 선행 매집",
-        "RSI 47 매우 안전"
+        "RSI 42 매우 안전"
       ],
       "core_penalties": [],
       "super_alpha_score": 0,
@@ -1369,7 +1368,7 @@
       "super_alpha_hits": [],
       "is_5bagger": false,
       "metrics": {
-        "rsi": 47.0,
+        "rsi": 41.5,
         "sm_score": null,
         "nh_score": null,
         "dv_score": 22,
@@ -1381,21 +1380,21 @@
     }
   ],
   "meta": {
-    "generated_at": "2026-07-21T09:37:40.281149+00:00",
+    "generated_at": "2026-07-21T14:17:10.771387+00:00",
     "sources": {
       "smart_money": {
         "ok": true,
-        "scan_at": "2026-07-21T18:32:25.576480",
+        "scan_at": "2026-07-21T22:31:02.241539",
         "error": null
       },
       "new_high": {
         "ok": true,
-        "scan_at": "2026-07-21T18:31:18.497151",
+        "scan_at": "2026-07-21T22:28:10.717527",
         "error": null
       },
       "divergence": {
         "ok": true,
-        "scan_at": "2026-07-20T23:03:40.036618",
+        "scan_at": "2026-07-21T22:47:40.917680",
         "error": null
       }
     },
