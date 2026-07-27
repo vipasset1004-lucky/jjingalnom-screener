@@ -4,18 +4,18 @@
     "smart_money_mode": "defensive",
     "smart_money_label": "🛡 방어",
     "smart_money_advice": "현금 비중 확대, 시장 대비 강한 종목만",
-    "new_high_breadth_trend": "─",
-    "new_high_breadth_scan": 0.1
+    "new_high_breadth_trend": "▼",
+    "new_high_breadth_scan": 0.0
   },
   "counts": {
-    "total": 29,
+    "total": 28,
     "by_verification": {
       "3": 0,
-      "2": 15,
+      "2": 14,
       "1": 14
     },
     "by_category": {
-      "A": 1,
+      "A": 0,
       "B": 1,
       "AB": 0
     }
@@ -210,96 +210,6 @@
         "nh_type_ko": null,
         "nh_grade": null,
         "dv_grade": "A"
-      }
-    },
-    {
-      "ticker": "093320",
-      "name": "케이아이엔엑스",
-      "market": "",
-      "themes": [
-        "데이터센터",
-        "IDC"
-      ],
-      "category": "A",
-      "verification": 2,
-      "sources": [
-        "new_high",
-        "divergence"
-      ],
-      "combined_score": 62.0,
-      "current_price": 143800.0,
-      "trading": {
-        "source": "new_high",
-        "entry": 143800.0,
-        "stop": 133734.0,
-        "tp1": 172560.0,
-        "tp2": 215700.0,
-        "trailing": 125260.0
-      },
-      "position_size_pct": 3.2,
-      "action": "조심 분할",
-      "action_level": "cautious",
-      "action_emoji": "⚠️",
-      "action_reasons": [
-        "종합 점수 부족"
-      ],
-      "block_reasons": [],
-      "signals_summary": [
-        "🎯 new-high A+ 77 눌림 재돌파형",
-        "📈 divergence B 47 거래량 선행 매집"
-      ],
-      "a_signal": 4,
-      "b_signal": 3,
-      "genuine_score": 28,
-      "genuine_rank": "씨앗",
-      "genuine_rank_emoji": "🌱",
-      "genuine_breakdown": {
-        "accumulation": 14,
-        "ignition": 0,
-        "trend": 14,
-        "explosion": 0
-      },
-      "genuine_hits": {
-        "accumulation": [
-          "거래량 선행 매집",
-          "20주선 안착",
-          "트렌드 구조"
-        ],
-        "ignition": [],
-        "trend": [
-          "Trend Template 8/8",
-          "ATH"
-        ],
-        "explosion": []
-      },
-      "core_score": 28,
-      "core_rank": "부적합",
-      "core_rank_emoji": "",
-      "core_hits": [
-        "거래량 선행 매집",
-        "RSI 64 안전"
-      ],
-      "core_penalties": [],
-      "super_alpha_score": 37,
-      "super_alpha_rank": "부적합",
-      "super_alpha_rank_emoji": "",
-      "super_alpha_hits": [
-        "ATH",
-        "A+ 등급",
-        "RVOL 2.4x",
-        "거래량 고갈 (출발 직전)",
-        "페널티 0"
-      ],
-      "is_5bagger": false,
-      "metrics": {
-        "rsi": 64.1,
-        "sm_score": null,
-        "nh_score": 77,
-        "dv_score": 47,
-        "sm_labels": [],
-        "nh_type_ko": "눌림 재돌파형",
-        "nh_grade": "A+",
-        "dv_grade": "B"
       }
     },
     {
@@ -2550,7 +2460,7 @@
     }
   ],
   "meta": {
-    "generated_at": "2026-07-24T14:06:54.928931+00:00",
+    "generated_at": "2026-07-27T10:49:57.590458+00:00",
     "sources": {
       "smart_money": {
         "ok": true,
@@ -2559,7 +2469,7 @@
       },
       "new_high": {
         "ok": true,
-        "scan_at": "2026-07-24T22:26:49.350207",
+        "scan_at": "2026-07-27T19:47:09.179937",
         "error": null
       },
       "divergence": {
