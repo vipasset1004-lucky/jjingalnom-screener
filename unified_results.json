@@ -950,6 +950,94 @@
       }
     },
     {
+      "ticker": "096770",
+      "name": "SK이노베이션",
+      "market": "KOSPI",
+      "themes": [
+        "정유",
+        "2차전지"
+      ],
+      "category": "watch",
+      "verification": 2,
+      "sources": [
+        "smart_money",
+        "divergence"
+      ],
+      "combined_score": 51.0,
+      "current_price": 128700.0,
+      "trading": {
+        "source": "fallback_backtest",
+        "entry": 128700.0,
+        "stop": 119691.0,
+        "tp1": 154440.0,
+        "tp2": 193050.0
+      },
+      "position_size_pct": 6.4,
+      "action": "조심 분할",
+      "action_level": "cautious",
+      "action_emoji": "⚠️",
+      "action_reasons": [
+        "추세 검증 부족",
+        "종합 점수 부족"
+      ],
+      "block_reasons": [],
+      "signals_summary": [
+        "⚡ smart-money 🔍매집중 🔄흑자전환",
+        "📈 divergence C 34 거래량 선행 매집"
+      ],
+      "a_signal": 2,
+      "b_signal": 2,
+      "genuine_score": 26,
+      "genuine_rank": "씨앗",
+      "genuine_rank_emoji": "🌱",
+      "genuine_breakdown": {
+        "accumulation": 10,
+        "ignition": 16,
+        "trend": 0,
+        "explosion": 0
+      },
+      "genuine_hits": {
+        "accumulation": [
+          "거래량 선행 매집",
+          "트렌드 구조"
+        ],
+        "ignition": [
+          "외인+기관 동시매수"
+        ],
+        "trend": [],
+        "explosion": []
+      },
+      "core_score": 65,
+      "core_rank": "진짜 갈놈",
+      "core_rank_emoji": "💥",
+      "core_hits": [
+        "외인+기관 강력 매집",
+        "수급 일치 강함 (20/30)",
+        "거래량 선행 매집",
+        "RSI 61 안전",
+        "흑자 전환"
+      ],
+      "core_penalties": [],
+      "super_alpha_score": 0,
+      "super_alpha_rank": "N/A",
+      "super_alpha_rank_emoji": "",
+      "super_alpha_hits": [],
+      "is_5bagger": false,
+      "metrics": {
+        "rsi": 61.0,
+        "sm_score": 68.0,
+        "nh_score": null,
+        "dv_score": 34,
+        "sm_labels": [
+          "🔍매집중",
+          "🔄흑자전환"
+        ],
+        "nh_type_ko": null,
+        "nh_grade": null,
+        "dv_grade": "C"
+      }
+    },
+    {
       "ticker": "280360",
       "name": "롯데웰푸드",
       "market": "KOSPI",
@@ -1038,94 +1126,6 @@
         "nh_type_ko": null,
         "nh_grade": null,
         "dv_grade": "B"
-      }
-    },
-    {
-      "ticker": "096770",
-      "name": "SK이노베이션",
-      "market": "KOSPI",
-      "themes": [
-        "정유",
-        "2차전지"
-      ],
-      "category": "watch",
-      "verification": 2,
-      "sources": [
-        "smart_money",
-        "divergence"
-      ],
-      "combined_score": 51.0,
-      "current_price": 128700.0,
-      "trading": {
-        "source": "fallback_backtest",
-        "entry": 128700.0,
-        "stop": 119691.0,
-        "tp1": 154440.0,
-        "tp2": 193050.0
-      },
-      "position_size_pct": 6.4,
-      "action": "조심 분할",
-      "action_level": "cautious",
-      "action_emoji": "⚠️",
-      "action_reasons": [
-        "추세 검증 부족",
-        "종합 점수 부족"
-      ],
-      "block_reasons": [],
-      "signals_summary": [
-        "⚡ smart-money 🔍매집중 🔄흑자전환",
-        "📈 divergence C 34 거래량 선행 매집"
-      ],
-      "a_signal": 2,
-      "b_signal": 2,
-      "genuine_score": 26,
-      "genuine_rank": "씨앗",
-      "genuine_rank_emoji": "🌱",
-      "genuine_breakdown": {
-        "accumulation": 10,
-        "ignition": 16,
-        "trend": 0,
-        "explosion": 0
-      },
-      "genuine_hits": {
-        "accumulation": [
-          "거래량 선행 매집",
-          "트렌드 구조"
-        ],
-        "ignition": [
-          "외인+기관 동시매수"
-        ],
-        "trend": [],
-        "explosion": []
-      },
-      "core_score": 65,
-      "core_rank": "진짜 갈놈",
-      "core_rank_emoji": "💥",
-      "core_hits": [
-        "외인+기관 강력 매집",
-        "수급 일치 강함 (20/30)",
-        "거래량 선행 매집",
-        "RSI 61 안전",
-        "흑자 전환"
-      ],
-      "core_penalties": [],
-      "super_alpha_score": 0,
-      "super_alpha_rank": "N/A",
-      "super_alpha_rank_emoji": "",
-      "super_alpha_hits": [],
-      "is_5bagger": false,
-      "metrics": {
-        "rsi": 61.0,
-        "sm_score": 68.0,
-        "nh_score": null,
-        "dv_score": 34,
-        "sm_labels": [
-          "🔍매집중",
-          "🔄흑자전환"
-        ],
-        "nh_type_ko": null,
-        "nh_grade": null,
-        "dv_grade": "C"
       }
     },
     {
@@ -5857,7 +5857,7 @@
     }
   ],
   "meta": {
-    "generated_at": "2026-08-14T13:35:02.506483+00:00",
+    "generated_at": "2026-08-17T07:58:36.812691+00:00",
     "sources": {
       "smart_money": {
         "ok": true,
@@ -5866,7 +5866,7 @@
       },
       "new_high": {
         "ok": true,
-        "scan_at": "2026-08-14T21:54:48.568537",
+        "scan_at": "2026-08-17T16:56:00.363935",
         "error": null
       },
       "divergence": {
