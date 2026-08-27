@@ -4,8 +4,8 @@
     "smart_money_mode": "neutral",
     "smart_money_label": "⚖ 중립",
     "smart_money_advice": "눌림목·매집 종목 위주, 신중 진입",
-    "new_high_breadth_trend": "─",
-    "new_high_breadth_scan": 0.4
+    "new_high_breadth_trend": "▼",
+    "new_high_breadth_scan": 0.3
   },
   "counts": {
     "total": 38,
@@ -35,29 +35,28 @@
         "new_high",
         "divergence"
       ],
-      "combined_score": 53.7,
-      "current_price": 51500.0,
+      "combined_score": 52.3,
+      "current_price": 48950.0,
       "trading": {
         "source": "new_high",
-        "entry": 51500.0,
-        "stop": 47895.0,
-        "tp1": 61800.0,
-        "tp2": 77250.0,
-        "trailing": 43452.0
+        "entry": 48950.0,
+        "stop": 45524.0,
+        "tp1": 58740.0,
+        "tp2": 73425.0,
+        "trailing": 44055.0
       },
       "position_size_pct": 9.6,
       "action": "조심 분할",
       "action_level": "cautious",
       "action_emoji": "⚠️",
       "action_reasons": [
-        "RSI 74 다소 높음",
         "종합 점수 부족",
-        "20일 +34% 과속"
+        "20일 +33% 과속"
       ],
       "block_reasons": [],
       "signals_summary": [
         "⚡ smart-money 🔍매집중 ↗️실적증가",
-        "🎯 new-high A 64 눌림 재돌파형",
+        "🎯 new-high A 60 눌림 재돌파형",
         "📈 divergence B 45 Pocket Pivot 매수"
       ],
       "a_signal": 3,
@@ -86,17 +85,18 @@
         ],
         "explosion": []
       },
-      "core_score": 51,
+      "core_score": 60,
       "core_rank": "강력 후보",
       "core_rank_emoji": "🎯",
       "core_hits": [
         "외인+기관 강력 매집",
         "Pocket Pivot",
+        "RSI 64 안전",
         "60>240선 정배열",
         "52주 신고가"
       ],
       "core_penalties": [],
-      "super_alpha_score": 29,
+      "super_alpha_score": 22,
       "super_alpha_rank": "부적합",
       "super_alpha_rank_emoji": "",
       "super_alpha_hits": [
@@ -105,9 +105,9 @@
       ],
       "is_5bagger": false,
       "metrics": {
-        "rsi": 73.9,
+        "rsi": 63.8,
         "sm_score": 52.0,
-        "nh_score": 64,
+        "nh_score": 60,
         "dv_score": 45,
         "sm_labels": [
           "🔍매집중",
@@ -2657,6 +2657,87 @@
       }
     },
     {
+      "ticker": "126560",
+      "name": "현대퓨처넷",
+      "market": "",
+      "themes": [
+        "IT서비스"
+      ],
+      "category": "watch",
+      "verification": 1,
+      "sources": [
+        "divergence"
+      ],
+      "combined_score": 32.0,
+      "current_price": 3185.0,
+      "trading": {
+        "source": "fallback_backtest",
+        "entry": 3185.0,
+        "stop": 2962.05,
+        "tp1": 3822.0,
+        "tp2": 4777.5
+      },
+      "position_size_pct": 4.0,
+      "action": "조심 분할",
+      "action_level": "cautious",
+      "action_emoji": "⚠️",
+      "action_reasons": [
+        "단일 소스 신호",
+        "추세 검증 부족",
+        "출발 신호 미발현",
+        "종합 점수 부족"
+      ],
+      "block_reasons": [],
+      "signals_summary": [
+        "📈 divergence C 32 OBV 매집 다이버전스"
+      ],
+      "a_signal": 0,
+      "b_signal": 3,
+      "genuine_score": 21,
+      "genuine_rank": "씨앗",
+      "genuine_rank_emoji": "🌱",
+      "genuine_breakdown": {
+        "accumulation": 19,
+        "ignition": 0,
+        "trend": 0,
+        "explosion": 2
+      },
+      "genuine_hits": {
+        "accumulation": [
+          "OBV 다이버전스",
+          "20주선 안착"
+        ],
+        "ignition": [],
+        "trend": [],
+        "explosion": [
+          "미발견 강신호"
+        ]
+      },
+      "core_score": 35,
+      "core_rank": "관찰",
+      "core_rank_emoji": "🔍",
+      "core_hits": [
+        "OBV 다이버전스",
+        "RSI 58 안전"
+      ],
+      "core_penalties": [],
+      "super_alpha_score": 0,
+      "super_alpha_rank": "N/A",
+      "super_alpha_rank_emoji": "",
+      "super_alpha_hits": [],
+      "is_5bagger": false,
+      "metrics": {
+        "rsi": 58.3,
+        "sm_score": null,
+        "nh_score": null,
+        "dv_score": 32,
+        "sm_labels": [],
+        "nh_type_ko": null,
+        "nh_grade": null,
+        "dv_grade": "C"
+      }
+    },
+    {
       "ticker": "012510",
       "name": "더존비즈온",
       "market": "",
@@ -2730,87 +2811,6 @@
       "is_5bagger": false,
       "metrics": {
         "rsi": 50.0,
-        "sm_score": null,
-        "nh_score": null,
-        "dv_score": 32,
-        "sm_labels": [],
-        "nh_type_ko": null,
-        "nh_grade": null,
-        "dv_grade": "C"
-      }
-    },
-    {
-      "ticker": "126560",
-      "name": "현대퓨처넷",
-      "market": "",
-      "themes": [
-        "IT서비스"
-      ],
-      "category": "watch",
-      "verification": 1,
-      "sources": [
-        "divergence"
-      ],
-      "combined_score": 32.0,
-      "current_price": 3185.0,
-      "trading": {
-        "source": "fallback_backtest",
-        "entry": 3185.0,
-        "stop": 2962.05,
-        "tp1": 3822.0,
-        "tp2": 4777.5
-      },
-      "position_size_pct": 4.0,
-      "action": "조심 분할",
-      "action_level": "cautious",
-      "action_emoji": "⚠️",
-      "action_reasons": [
-        "단일 소스 신호",
-        "추세 검증 부족",
-        "출발 신호 미발현",
-        "종합 점수 부족"
-      ],
-      "block_reasons": [],
-      "signals_summary": [
-        "📈 divergence C 32 OBV 매집 다이버전스"
-      ],
-      "a_signal": 0,
-      "b_signal": 3,
-      "genuine_score": 21,
-      "genuine_rank": "씨앗",
-      "genuine_rank_emoji": "🌱",
-      "genuine_breakdown": {
-        "accumulation": 19,
-        "ignition": 0,
-        "trend": 0,
-        "explosion": 2
-      },
-      "genuine_hits": {
-        "accumulation": [
-          "OBV 다이버전스",
-          "20주선 안착"
-        ],
-        "ignition": [],
-        "trend": [],
-        "explosion": [
-          "미발견 강신호"
-        ]
-      },
-      "core_score": 35,
-      "core_rank": "관찰",
-      "core_rank_emoji": "🔍",
-      "core_hits": [
-        "OBV 다이버전스",
-        "RSI 58 안전"
-      ],
-      "core_penalties": [],
-      "super_alpha_score": 0,
-      "super_alpha_rank": "N/A",
-      "super_alpha_rank_emoji": "",
-      "super_alpha_hits": [],
-      "is_5bagger": false,
-      "metrics": {
-        "rsi": 58.3,
         "sm_score": null,
         "nh_score": null,
         "dv_score": 32,
@@ -3319,7 +3319,7 @@
     }
   ],
   "meta": {
-    "generated_at": "2026-08-26T13:11:46.333917+00:00",
+    "generated_at": "2026-08-27T18:16:14.989605+00:00",
     "sources": {
       "smart_money": {
         "ok": true,
@@ -3328,7 +3328,7 @@
       },
       "new_high": {
         "ok": true,
-        "scan_at": "2026-08-26T21:41:30.550085",
+        "scan_at": "2026-08-28T03:10:28.337765",
         "error": null
       },
       "divergence": {
