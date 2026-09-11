@@ -4,19 +4,19 @@
     "smart_money_mode": "neutral",
     "smart_money_label": "⚖ 중립",
     "smart_money_advice": "눌림목·매집 종목 위주, 신중 진입",
-    "new_high_breadth_trend": "─",
-    "new_high_breadth_scan": 0.6
+    "new_high_breadth_trend": "▲",
+    "new_high_breadth_scan": 0.7
   },
   "counts": {
-    "total": 45,
+    "total": 46,
     "by_verification": {
       "3": 0,
-      "2": 26,
+      "2": 27,
       "1": 19
     },
     "by_category": {
       "A": 2,
-      "B": 11,
+      "B": 12,
       "AB": 0
     }
   },
@@ -35,15 +35,15 @@
         "new_high",
         "divergence"
       ],
-      "combined_score": 68.0,
-      "current_price": 7880.0,
+      "combined_score": 69.0,
+      "current_price": 7780.0,
       "trading": {
         "source": "new_high",
-        "entry": 7880.0,
-        "stop": 7328.0,
-        "tp1": 9456.0,
-        "tp2": 11820.0,
-        "trailing": 7124.0
+        "entry": 7780.0,
+        "stop": 7235.0,
+        "tp1": 9336.0,
+        "tp2": 11670.0,
+        "trailing": 7232.0
       },
       "position_size_pct": 6.4,
       "action": "조심 분할",
@@ -51,11 +51,11 @@
       "action_emoji": "⚠️",
       "action_reasons": [
         "종합 점수 부족",
-        "20일 +40% 과속"
+        "20일 +38% 과속"
       ],
       "block_reasons": [],
       "signals_summary": [
-        "🎯 new-high A+ 93 눌림 재돌파형",
+        "🎯 new-high A+ 95 눌림 재돌파형",
         "📈 divergence B 43 매집비율 2.5배"
       ],
       "a_signal": 4,
@@ -90,27 +90,120 @@
         "PRIME-S eXplosive"
       ],
       "core_penalties": [
-        "20일 +40% 과속"
+        "20일 +38% 과속"
       ],
-      "super_alpha_score": 49,
+      "super_alpha_score": 59,
       "super_alpha_rank": "WATCH",
       "super_alpha_rank_emoji": "🔍",
       "super_alpha_hits": [
         "PRIME-S eXplosive",
         "A+ 등급",
+        "동시매매 3일",
         "RVOL 2.7x",
         "거래량 고갈 (출발 직전)"
       ],
       "is_5bagger": false,
       "metrics": {
-        "rsi": 69.7,
+        "rsi": 66.9,
         "sm_score": null,
-        "nh_score": 93,
+        "nh_score": 95,
         "dv_score": 43,
         "sm_labels": [],
         "nh_type_ko": "눌림 재돌파형",
         "nh_grade": "A+",
         "dv_grade": "B"
+      }
+    },
+    {
+      "ticker": "003690",
+      "name": "코리안리",
+      "market": "KOSPI",
+      "themes": [
+        "자동수집"
+      ],
+      "category": "B",
+      "verification": 2,
+      "sources": [
+        "smart_money",
+        "new_high"
+      ],
+      "combined_score": 61.0,
+      "current_price": 14900.0,
+      "trading": {
+        "source": "new_high",
+        "entry": 14900.0,
+        "stop": 13857.0,
+        "tp1": 17880.0,
+        "tp2": 22350.0,
+        "trailing": 14696.0
+      },
+      "position_size_pct": 6.4,
+      "action": "조심 분할",
+      "action_level": "cautious",
+      "action_emoji": "⚠️",
+      "action_reasons": [
+        "종합 점수 부족"
+      ],
+      "block_reasons": [],
+      "signals_summary": [
+        "⚡ smart-money 🎯VCP ↗️실적증가",
+        "🎯 new-high A+ 84 눌림 재돌파형"
+      ],
+      "a_signal": 2,
+      "b_signal": 4,
+      "genuine_score": 18,
+      "genuine_rank": "미관심",
+      "genuine_rank_emoji": "",
+      "genuine_breakdown": {
+        "accumulation": 0,
+        "ignition": 6,
+        "trend": 11,
+        "explosion": 1
+      },
+      "genuine_hits": {
+        "accumulation": [],
+        "ignition": [
+          "수급 일치"
+        ],
+        "trend": [
+          "PRIME",
+          "ATH"
+        ],
+        "explosion": []
+      },
+      "core_score": 33,
+      "core_rank": "부적합",
+      "core_rank_emoji": "",
+      "core_hits": [
+        "RSI 56 안전",
+        "최근 횡보 (잠재력)",
+        "VCP 진행"
+      ],
+      "core_penalties": [
+        "외인/기관 순매도"
+      ],
+      "super_alpha_score": 42,
+      "super_alpha_rank": "WATCH",
+      "super_alpha_rank_emoji": "🔍",
+      "super_alpha_hits": [
+        "PRIME",
+        "A+ 등급",
+        "MA20 이격 ±5%",
+        "거래량 고갈 (출발 직전)"
+      ],
+      "is_5bagger": false,
+      "metrics": {
+        "rsi": 55.8,
+        "sm_score": 38.0,
+        "nh_score": 84,
+        "dv_score": null,
+        "sm_labels": [
+          "🎯VCP",
+          "↗️실적증가"
+        ],
+        "nh_type_ko": "눌림 재돌파형",
+        "nh_grade": "A+",
+        "dv_grade": null
       }
     },
     {
@@ -296,98 +389,6 @@
       }
     },
     {
-      "ticker": "403870",
-      "name": "HPSP",
-      "market": "KOSDAQ",
-      "themes": [
-        "핀테크"
-      ],
-      "category": "B",
-      "verification": 2,
-      "sources": [
-        "smart_money",
-        "divergence"
-      ],
-      "combined_score": 48.6,
-      "current_price": 55600.0,
-      "trading": {
-        "source": "smart_money",
-        "entry": 55600.0,
-        "stop": 49036.0,
-        "tp1": 63960.0,
-        "tp2": 74620.0,
-        "size_rule": "1/4",
-        "horizon": "중기 (백테스트 60d 75%)",
-        "note": "VCP 박스 하단 손절, Minervini 패턴"
-      },
-      "position_size_pct": 6.4,
-      "action": "회피",
-      "action_level": "avoid",
-      "action_emoji": "⛔",
-      "action_reasons": [
-        "RSI 82 과열"
-      ],
-      "block_reasons": [
-        "RSI 82 과열"
-      ],
-      "signals_summary": [
-        "⚡ smart-money 🎯VCP ➡️실적유지",
-        "📈 divergence C 29 MACD 골든크로스"
-      ],
-      "a_signal": 2,
-      "b_signal": 3,
-      "genuine_score": 22,
-      "genuine_rank": "씨앗",
-      "genuine_rank_emoji": "🌱",
-      "genuine_breakdown": {
-        "accumulation": 4,
-        "ignition": 16,
-        "trend": 0,
-        "explosion": 2
-      },
-      "genuine_hits": {
-        "accumulation": [
-          "20주선 안착"
-        ],
-        "ignition": [
-          "외인+기관 동시매수"
-        ],
-        "trend": [],
-        "explosion": [
-          "매집 238일"
-        ]
-      },
-      "core_score": 12,
-      "core_rank": "부적합",
-      "core_rank_emoji": "",
-      "core_hits": [
-        "수급 일치 강함 (26/30)",
-        "VCP 진행"
-      ],
-      "core_penalties": [
-        "외인/기관 순매도",
-        "RSI 82 과열"
-      ],
-      "super_alpha_score": 0,
-      "super_alpha_rank": "N/A",
-      "super_alpha_rank_emoji": "",
-      "super_alpha_hits": [],
-      "is_5bagger": false,
-      "metrics": {
-        "rsi": 81.8,
-        "sm_score": 68.3,
-        "nh_score": null,
-        "dv_score": 29,
-        "sm_labels": [
-          "🎯VCP",
-          "➡️실적유지"
-        ],
-        "nh_type_ko": null,
-        "nh_grade": null,
-        "dv_grade": "C"
-      }
-    },
-    {
       "ticker": "000880",
       "name": "한화",
       "market": "KOSPI",
@@ -477,88 +478,94 @@
       }
     },
     {
-      "ticker": "280360",
-      "name": "롯데웰푸드",
-      "market": "",
+      "ticker": "403870",
+      "name": "HPSP",
+      "market": "KOSDAQ",
       "themes": [
-        "식품"
+        "핀테크"
       ],
-      "category": "watch",
+      "category": "B",
       "verification": 2,
       "sources": [
-        "new_high",
+        "smart_money",
         "divergence"
       ],
-      "combined_score": 48.0,
-      "current_price": 144700.0,
+      "combined_score": 48.6,
+      "current_price": 55600.0,
       "trading": {
-        "source": "new_high",
-        "entry": 144700.0,
-        "stop": 134571.0,
-        "tp1": 173640.0,
-        "tp2": 217050.0,
-        "trailing": 136605.0
+        "source": "smart_money",
+        "entry": 55600.0,
+        "stop": 49036.0,
+        "tp1": 63960.0,
+        "tp2": 74620.0,
+        "size_rule": "1/4",
+        "horizon": "중기 (백테스트 60d 75%)",
+        "note": "VCP 박스 하단 손절, Minervini 패턴"
       },
       "position_size_pct": 6.4,
       "action": "회피",
       "action_level": "avoid",
       "action_emoji": "⛔",
       "action_reasons": [
-        "실패 돌파"
+        "RSI 82 과열"
       ],
       "block_reasons": [
-        "실패 돌파"
+        "RSI 82 과열"
       ],
       "signals_summary": [
-        "🎯 new-high A 59 눌림 재돌파형",
-        "📈 divergence C 37 거래량 선행 매집"
+        "⚡ smart-money 🎯VCP ➡️실적유지",
+        "📈 divergence C 29 MACD 골든크로스"
       ],
-      "a_signal": 1,
+      "a_signal": 2,
       "b_signal": 3,
-      "genuine_score": 20,
+      "genuine_score": 22,
       "genuine_rank": "씨앗",
       "genuine_rank_emoji": "🌱",
       "genuine_breakdown": {
-        "accumulation": 14,
-        "ignition": 0,
-        "trend": 6,
-        "explosion": 0
+        "accumulation": 4,
+        "ignition": 16,
+        "trend": 0,
+        "explosion": 2
       },
       "genuine_hits": {
         "accumulation": [
-          "거래량 선행 매집",
-          "20주선 안착",
-          "트렌드 구조"
+          "20주선 안착"
         ],
-        "ignition": [],
+        "ignition": [
+          "외인+기관 동시매수"
+        ],
         "trend": [],
-        "explosion": []
+        "explosion": [
+          "매집 238일"
+        ]
       },
-      "core_score": 34,
+      "core_score": 12,
       "core_rank": "부적합",
       "core_rank_emoji": "",
       "core_hits": [
-        "거래량 선행 매집",
-        "RSI 64 안전"
+        "수급 일치 강함 (26/30)",
+        "VCP 진행"
       ],
-      "core_penalties": [],
-      "super_alpha_score": 26,
-      "super_alpha_rank": "부적합",
+      "core_penalties": [
+        "외인/기관 순매도",
+        "RSI 82 과열"
+      ],
+      "super_alpha_score": 0,
+      "super_alpha_rank": "N/A",
       "super_alpha_rank_emoji": "",
-      "super_alpha_hits": [
-        "BULL regime",
-        "RVOL 3.3x",
-        "거래량 고갈 (출발 직전)"
-      ],
+      "super_alpha_hits": [],
       "is_5bagger": false,
       "metrics": {
-        "rsi": 63.6,
-        "sm_score": null,
-        "nh_score": 59,
-        "dv_score": 37,
-        "sm_labels": [],
-        "nh_type_ko": "눌림 재돌파형",
-        "nh_grade": "A",
+        "rsi": 81.8,
+        "sm_score": 68.3,
+        "nh_score": null,
+        "dv_score": 29,
+        "sm_labels": [
+          "🎯VCP",
+          "➡️실적유지"
+        ],
+        "nh_type_ko": null,
+        "nh_grade": null,
         "dv_grade": "C"
       }
     },
@@ -653,6 +660,93 @@
         "nh_type_ko": null,
         "nh_grade": null,
         "dv_grade": "D"
+      }
+    },
+    {
+      "ticker": "280360",
+      "name": "롯데웰푸드",
+      "market": "",
+      "themes": [
+        "식품"
+      ],
+      "category": "watch",
+      "verification": 2,
+      "sources": [
+        "new_high",
+        "divergence"
+      ],
+      "combined_score": 47.0,
+      "current_price": 142900.0,
+      "trading": {
+        "source": "new_high",
+        "entry": 142900.0,
+        "stop": 132897.0,
+        "tp1": 171480.0,
+        "tp2": 214350.0,
+        "trailing": 137790.0
+      },
+      "position_size_pct": 6.4,
+      "action": "회피",
+      "action_level": "avoid",
+      "action_emoji": "⛔",
+      "action_reasons": [
+        "실패 돌파"
+      ],
+      "block_reasons": [
+        "실패 돌파"
+      ],
+      "signals_summary": [
+        "🎯 new-high B 57 눌림 재돌파형",
+        "📈 divergence C 37 거래량 선행 매집"
+      ],
+      "a_signal": 0,
+      "b_signal": 3,
+      "genuine_score": 20,
+      "genuine_rank": "씨앗",
+      "genuine_rank_emoji": "🌱",
+      "genuine_breakdown": {
+        "accumulation": 14,
+        "ignition": 0,
+        "trend": 6,
+        "explosion": 0
+      },
+      "genuine_hits": {
+        "accumulation": [
+          "거래량 선행 매집",
+          "20주선 안착",
+          "트렌드 구조"
+        ],
+        "ignition": [],
+        "trend": [],
+        "explosion": []
+      },
+      "core_score": 34,
+      "core_rank": "부적합",
+      "core_rank_emoji": "",
+      "core_hits": [
+        "거래량 선행 매집",
+        "RSI 61 안전"
+      ],
+      "core_penalties": [],
+      "super_alpha_score": 26,
+      "super_alpha_rank": "부적합",
+      "super_alpha_rank_emoji": "",
+      "super_alpha_hits": [
+        "BULL regime",
+        "RVOL 3.3x",
+        "MA20 이격 ±5%",
+        "거래량 고갈 (출발 직전)"
+      ],
+      "is_5bagger": false,
+      "metrics": {
+        "rsi": 61.2,
+        "sm_score": null,
+        "nh_score": 57,
+        "dv_score": 37,
+        "sm_labels": [],
+        "nh_type_ko": "눌림 재돌파형",
+        "nh_grade": "B",
+        "dv_grade": "C"
       }
     },
     {
@@ -753,15 +847,15 @@
         "smart_money",
         "new_high"
       ],
-      "combined_score": 43.4,
-      "current_price": 50400.0,
+      "combined_score": 45.4,
+      "current_price": 51300.0,
       "trading": {
         "source": "new_high",
-        "entry": 50400.0,
-        "stop": 46872.0,
-        "tp1": 60480.0,
-        "tp2": 75600.0,
-        "trailing": 50142.0
+        "entry": 51300.0,
+        "stop": 47709.0,
+        "tp1": 61560.0,
+        "tp2": 76950.0,
+        "trailing": 50560.0
       },
       "position_size_pct": 6.4,
       "action": "조심 분할",
@@ -773,7 +867,7 @@
       "block_reasons": [],
       "signals_summary": [
         "⚡ smart-money 📈실적급증",
-        "🎯 new-high A 59 눌림 재돌파형"
+        "🎯 new-high A 63 눌림 재돌파형"
       ],
       "a_signal": 1,
       "b_signal": 0,
@@ -803,7 +897,7 @@
       "core_rank_emoji": "🔍",
       "core_hits": [
         "외인+기관 강력 매집",
-        "RSI 57 안전"
+        "RSI 59 안전"
       ],
       "core_penalties": [],
       "super_alpha_score": 40,
@@ -816,9 +910,9 @@
       ],
       "is_5bagger": false,
       "metrics": {
-        "rsi": 57.0,
+        "rsi": 59.1,
         "sm_score": 27.8,
-        "nh_score": 59,
+        "nh_score": 63,
         "dv_score": null,
         "sm_labels": [
           "📈실적급증"
@@ -2664,6 +2758,88 @@
       }
     },
     {
+      "ticker": "057050",
+      "name": "현대홈쇼핑",
+      "market": "",
+      "themes": [
+        "유통",
+        "홈쇼핑"
+      ],
+      "category": "watch",
+      "verification": 1,
+      "sources": [
+        "divergence"
+      ],
+      "combined_score": 55.0,
+      "current_price": 87300.0,
+      "trading": {
+        "source": "fallback_backtest",
+        "entry": 87300.0,
+        "stop": 81189.0,
+        "tp1": 104760.0,
+        "tp2": 130950.0
+      },
+      "position_size_pct": 4.0,
+      "action": "조심 분할",
+      "action_level": "cautious",
+      "action_emoji": "⚠️",
+      "action_reasons": [
+        "단일 소스 신호",
+        "추세 검증 부족",
+        "출발 신호 미발현",
+        "종합 점수 부족"
+      ],
+      "block_reasons": [],
+      "signals_summary": [
+        "📈 divergence A 55 Pocket Pivot 매수"
+      ],
+      "a_signal": 2,
+      "b_signal": 2,
+      "genuine_score": 20,
+      "genuine_rank": "씨앗",
+      "genuine_rank_emoji": "🌱",
+      "genuine_breakdown": {
+        "accumulation": 18,
+        "ignition": 0,
+        "trend": 0,
+        "explosion": 2
+      },
+      "genuine_hits": {
+        "accumulation": [
+          "Pocket Pivot",
+          "거래량 선행 매집",
+          "트렌드 구조"
+        ],
+        "ignition": [],
+        "trend": [],
+        "explosion": [
+          "미발견 강신호"
+        ]
+      },
+      "core_score": 23,
+      "core_rank": "부적합",
+      "core_rank_emoji": "",
+      "core_hits": [
+        "Pocket Pivot"
+      ],
+      "core_penalties": [],
+      "super_alpha_score": 0,
+      "super_alpha_rank": "N/A",
+      "super_alpha_rank_emoji": "",
+      "super_alpha_hits": [],
+      "is_5bagger": false,
+      "metrics": {
+        "rsi": 66.3,
+        "sm_score": null,
+        "nh_score": null,
+        "dv_score": 55,
+        "sm_labels": [],
+        "nh_type_ko": null,
+        "nh_grade": null,
+        "dv_grade": "A"
+      }
+    },
+    {
       "ticker": "234300",
       "name": "에스트래픽",
       "market": "",
@@ -2741,88 +2917,6 @@
       "is_5bagger": false,
       "metrics": {
         "rsi": 75.6,
-        "sm_score": null,
-        "nh_score": null,
-        "dv_score": 55,
-        "sm_labels": [],
-        "nh_type_ko": null,
-        "nh_grade": null,
-        "dv_grade": "A"
-      }
-    },
-    {
-      "ticker": "057050",
-      "name": "현대홈쇼핑",
-      "market": "",
-      "themes": [
-        "유통",
-        "홈쇼핑"
-      ],
-      "category": "watch",
-      "verification": 1,
-      "sources": [
-        "divergence"
-      ],
-      "combined_score": 55.0,
-      "current_price": 87300.0,
-      "trading": {
-        "source": "fallback_backtest",
-        "entry": 87300.0,
-        "stop": 81189.0,
-        "tp1": 104760.0,
-        "tp2": 130950.0
-      },
-      "position_size_pct": 4.0,
-      "action": "조심 분할",
-      "action_level": "cautious",
-      "action_emoji": "⚠️",
-      "action_reasons": [
-        "단일 소스 신호",
-        "추세 검증 부족",
-        "출발 신호 미발현",
-        "종합 점수 부족"
-      ],
-      "block_reasons": [],
-      "signals_summary": [
-        "📈 divergence A 55 Pocket Pivot 매수"
-      ],
-      "a_signal": 2,
-      "b_signal": 2,
-      "genuine_score": 20,
-      "genuine_rank": "씨앗",
-      "genuine_rank_emoji": "🌱",
-      "genuine_breakdown": {
-        "accumulation": 18,
-        "ignition": 0,
-        "trend": 0,
-        "explosion": 2
-      },
-      "genuine_hits": {
-        "accumulation": [
-          "Pocket Pivot",
-          "거래량 선행 매집",
-          "트렌드 구조"
-        ],
-        "ignition": [],
-        "trend": [],
-        "explosion": [
-          "미발견 강신호"
-        ]
-      },
-      "core_score": 23,
-      "core_rank": "부적합",
-      "core_rank_emoji": "",
-      "core_hits": [
-        "Pocket Pivot"
-      ],
-      "core_penalties": [],
-      "super_alpha_score": 0,
-      "super_alpha_rank": "N/A",
-      "super_alpha_rank_emoji": "",
-      "super_alpha_hits": [],
-      "is_5bagger": false,
-      "metrics": {
-        "rsi": 66.3,
         "sm_score": null,
         "nh_score": null,
         "dv_score": 55,
@@ -3410,6 +3504,88 @@
       }
     },
     {
+      "ticker": "230360",
+      "name": "에코마케팅",
+      "market": "",
+      "themes": [
+        "마케팅",
+        "D2C"
+      ],
+      "category": "watch",
+      "verification": 1,
+      "sources": [
+        "divergence"
+      ],
+      "combined_score": 29.0,
+      "current_price": 16000.0,
+      "trading": {
+        "source": "fallback_backtest",
+        "entry": 16000.0,
+        "stop": 14880.0,
+        "tp1": 19200.0,
+        "tp2": 24000.0
+      },
+      "position_size_pct": 4.0,
+      "action": "조심 분할",
+      "action_level": "cautious",
+      "action_emoji": "⚠️",
+      "action_reasons": [
+        "단일 소스 신호",
+        "추세 검증 부족",
+        "출발 신호 미발현",
+        "종합 점수 부족"
+      ],
+      "block_reasons": [],
+      "signals_summary": [
+        "📈 divergence C 29 볼린저 스퀴즈"
+      ],
+      "a_signal": 1,
+      "b_signal": 2,
+      "genuine_score": 20,
+      "genuine_rank": "씨앗",
+      "genuine_rank_emoji": "🌱",
+      "genuine_breakdown": {
+        "accumulation": 18,
+        "ignition": 0,
+        "trend": 0,
+        "explosion": 2
+      },
+      "genuine_hits": {
+        "accumulation": [
+          "OBV 다이버전스",
+          "트렌드 구조"
+        ],
+        "ignition": [],
+        "trend": [],
+        "explosion": [
+          "미발견 강신호"
+        ]
+      },
+      "core_score": 35,
+      "core_rank": "관찰",
+      "core_rank_emoji": "🔍",
+      "core_hits": [
+        "OBV 다이버전스",
+        "RSI 50 매우 안전"
+      ],
+      "core_penalties": [],
+      "super_alpha_score": 0,
+      "super_alpha_rank": "N/A",
+      "super_alpha_rank_emoji": "",
+      "super_alpha_hits": [],
+      "is_5bagger": false,
+      "metrics": {
+        "rsi": 50.0,
+        "sm_score": null,
+        "nh_score": null,
+        "dv_score": 29,
+        "sm_labels": [],
+        "nh_type_ko": null,
+        "nh_grade": null,
+        "dv_grade": "C"
+      }
+    },
+    {
       "ticker": "354320",
       "name": "알멕",
       "market": "KOSDAQ",
@@ -3491,88 +3667,6 @@
         "nh_type_ko": null,
         "nh_grade": null,
         "dv_grade": null
-      }
-    },
-    {
-      "ticker": "230360",
-      "name": "에코마케팅",
-      "market": "",
-      "themes": [
-        "마케팅",
-        "D2C"
-      ],
-      "category": "watch",
-      "verification": 1,
-      "sources": [
-        "divergence"
-      ],
-      "combined_score": 29.0,
-      "current_price": 16000.0,
-      "trading": {
-        "source": "fallback_backtest",
-        "entry": 16000.0,
-        "stop": 14880.0,
-        "tp1": 19200.0,
-        "tp2": 24000.0
-      },
-      "position_size_pct": 4.0,
-      "action": "조심 분할",
-      "action_level": "cautious",
-      "action_emoji": "⚠️",
-      "action_reasons": [
-        "단일 소스 신호",
-        "추세 검증 부족",
-        "출발 신호 미발현",
-        "종합 점수 부족"
-      ],
-      "block_reasons": [],
-      "signals_summary": [
-        "📈 divergence C 29 볼린저 스퀴즈"
-      ],
-      "a_signal": 1,
-      "b_signal": 2,
-      "genuine_score": 20,
-      "genuine_rank": "씨앗",
-      "genuine_rank_emoji": "🌱",
-      "genuine_breakdown": {
-        "accumulation": 18,
-        "ignition": 0,
-        "trend": 0,
-        "explosion": 2
-      },
-      "genuine_hits": {
-        "accumulation": [
-          "OBV 다이버전스",
-          "트렌드 구조"
-        ],
-        "ignition": [],
-        "trend": [],
-        "explosion": [
-          "미발견 강신호"
-        ]
-      },
-      "core_score": 35,
-      "core_rank": "관찰",
-      "core_rank_emoji": "🔍",
-      "core_hits": [
-        "OBV 다이버전스",
-        "RSI 50 매우 안전"
-      ],
-      "core_penalties": [],
-      "super_alpha_score": 0,
-      "super_alpha_rank": "N/A",
-      "super_alpha_rank_emoji": "",
-      "super_alpha_hits": [],
-      "is_5bagger": false,
-      "metrics": {
-        "rsi": 50.0,
-        "sm_score": null,
-        "nh_score": null,
-        "dv_score": 29,
-        "sm_labels": [],
-        "nh_type_ko": null,
-        "nh_grade": null,
-        "dv_grade": "C"
       }
     },
     {
@@ -3912,7 +4006,7 @@
     }
   ],
   "meta": {
-    "generated_at": "2026-09-10T16:20:00.376850+00:00",
+    "generated_at": "2026-09-11T12:11:00.317521+00:00",
     "sources": {
       "smart_money": {
         "ok": true,
@@ -3921,7 +4015,7 @@
       },
       "new_high": {
         "ok": true,
-        "scan_at": "2026-09-11T00:43:27.997537",
+        "scan_at": "2026-09-11T21:06:30.507110",
         "error": null
       },
       "divergence": {
