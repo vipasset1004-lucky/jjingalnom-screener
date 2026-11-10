@@ -1,26 +1,119 @@
 {
   "regime": {
-    "smart_money_score": 25.4,
-    "smart_money_mode": "defensive",
-    "smart_money_label": "🛡 방어",
-    "smart_money_advice": "현금 비중 확대, 시장 대비 강한 종목만",
+    "smart_money_score": 47.6,
+    "smart_money_mode": "neutral",
+    "smart_money_label": "⚖ 중립",
+    "smart_money_advice": "눌림목·매집 종목 위주, 신중 진입",
     "new_high_breadth_trend": "─",
-    "new_high_breadth_scan": 0.1
+    "new_high_breadth_scan": 0.4
   },
   "counts": {
-    "total": 19,
+    "total": 21,
     "by_verification": {
-      "3": 0,
-      "2": 7,
-      "1": 12
+      "3": 1,
+      "2": 9,
+      "1": 11
     },
     "by_category": {
-      "A": 0,
-      "B": 4,
+      "A": 1,
+      "B": 5,
       "AB": 0
     }
   },
   "stocks": [
+    {
+      "ticker": "003490",
+      "name": "대한항공",
+      "market": "KOSPI",
+      "themes": [
+        "항공",
+        "여행"
+      ],
+      "category": "A",
+      "verification": 3,
+      "sources": [
+        "smart_money",
+        "new_high",
+        "divergence"
+      ],
+      "combined_score": 35.7,
+      "current_price": 32600.0,
+      "trading": {
+        "source": "new_high",
+        "entry": 32600.0,
+        "stop": 30318.0,
+        "tp1": 39120.0,
+        "tp2": 48900.0,
+        "trailing": 27862.0
+      },
+      "position_size_pct": 7.2,
+      "action": "조심 분할",
+      "action_level": "cautious",
+      "action_emoji": "⚠️",
+      "action_reasons": [
+        "종합 점수 부족"
+      ],
+      "block_reasons": [],
+      "signals_summary": [
+        "⚡ smart-money ",
+        "🎯 new-high A 69 눌림 재돌파형",
+        "📈 divergence C 38 Pocket Pivot 매수"
+      ],
+      "a_signal": 3,
+      "b_signal": 2,
+      "genuine_score": 23,
+      "genuine_rank": "씨앗",
+      "genuine_rank_emoji": "🌱",
+      "genuine_breakdown": {
+        "accumulation": 10,
+        "ignition": 0,
+        "trend": 12,
+        "explosion": 1
+      },
+      "genuine_hits": {
+        "accumulation": [
+          "Pocket Pivot",
+          "트렌드 구조"
+        ],
+        "ignition": [],
+        "trend": [
+          "Trend Template 8/8",
+          "ATH"
+        ],
+        "explosion": []
+      },
+      "core_score": 39,
+      "core_rank": "관찰",
+      "core_rank_emoji": "🔍",
+      "core_hits": [
+        "Pocket Pivot",
+        "거래대금 3.4배",
+        "60>240선 정배열",
+        "52주 신고가"
+      ],
+      "core_penalties": [],
+      "super_alpha_score": 47,
+      "super_alpha_rank": "WATCH",
+      "super_alpha_rank_emoji": "🔍",
+      "super_alpha_hits": [
+        "ATH",
+        "외인 5일 +290만주",
+        "기관 5일 +246만주",
+        "동시매매 4일 (진짜 매집)",
+        "RVOL 3.9x"
+      ],
+      "is_5bagger": false,
+      "metrics": {
+        "rsi": 67.1,
+        "sm_score": 0.0,
+        "nh_score": 69,
+        "dv_score": 38,
+        "sm_labels": [],
+        "nh_type_ko": "눌림 재돌파형",
+        "nh_grade": "A",
+        "dv_grade": "C"
+      }
+    },
     {
       "ticker": "028050",
       "name": "삼성E&A",
@@ -44,12 +137,12 @@
         "tp1": 73560.0,
         "tp2": 91950.0
       },
-      "position_size_pct": 3.2,
+      "position_size_pct": 4.8,
       "action": "조심 분할",
       "action_level": "cautious",
       "action_emoji": "⚠️",
       "action_reasons": [
-        "RSI 73 다소 높음",
+        "RSI 72 다소 높음",
         "추세 검증 부족",
         "출발 신호 미발현",
         "종합 점수 부족"
@@ -81,12 +174,13 @@
         "trend": [],
         "explosion": []
       },
-      "core_score": 29,
+      "core_score": 33,
       "core_rank": "부적합",
       "core_rank_emoji": "",
       "core_hits": [
         "거래량 선행 매집",
-        "Pocket Pivot"
+        "Pocket Pivot",
+        "60>240선 정배열"
       ],
       "core_penalties": [],
       "super_alpha_score": 0,
@@ -95,7 +189,7 @@
       "super_alpha_hits": [],
       "is_5bagger": false,
       "metrics": {
-        "rsi": 73.1,
+        "rsi": 72.2,
         "sm_score": 0.0,
         "nh_score": null,
         "dv_score": 59,
@@ -128,7 +222,7 @@
         "tp1": 18564.0,
         "tp2": 23205.0
       },
-      "position_size_pct": 3.2,
+      "position_size_pct": 4.8,
       "action": "회피",
       "action_level": "avoid",
       "action_emoji": "⛔",
@@ -163,7 +257,7 @@
         "trend": [],
         "explosion": []
       },
-      "core_score": 34,
+      "core_score": 29,
       "core_rank": "부적합",
       "core_rank_emoji": "",
       "core_hits": [
@@ -177,10 +271,92 @@
       "super_alpha_hits": [],
       "is_5bagger": false,
       "metrics": {
-        "rsi": 66.0,
+        "rsi": 74.7,
         "sm_score": 0.0,
         "nh_score": null,
         "dv_score": 50,
+        "sm_labels": [],
+        "nh_type_ko": null,
+        "nh_grade": null,
+        "dv_grade": "B"
+      }
+    },
+    {
+      "ticker": "282720",
+      "name": "금양그린파워",
+      "market": "KOSDAQ",
+      "themes": [
+        "미디어"
+      ],
+      "category": "watch",
+      "verification": 2,
+      "sources": [
+        "smart_money",
+        "divergence"
+      ],
+      "combined_score": 23.0,
+      "current_price": 7740.0,
+      "trading": {
+        "source": "fallback_backtest",
+        "entry": 7740.0,
+        "stop": 7198.2,
+        "tp1": 9288.0,
+        "tp2": 11610.0
+      },
+      "position_size_pct": 4.8,
+      "action": "조심 분할",
+      "action_level": "cautious",
+      "action_emoji": "⚠️",
+      "action_reasons": [
+        "추세 검증 부족",
+        "종합 점수 부족"
+      ],
+      "block_reasons": [],
+      "signals_summary": [
+        "⚡ smart-money ",
+        "📈 divergence B 46 Pocket Pivot 매수"
+      ],
+      "a_signal": 0,
+      "b_signal": 2,
+      "genuine_score": 20,
+      "genuine_rank": "씨앗",
+      "genuine_rank_emoji": "🌱",
+      "genuine_breakdown": {
+        "accumulation": 14,
+        "ignition": 0,
+        "trend": 0,
+        "explosion": 6
+      },
+      "genuine_hits": {
+        "accumulation": [
+          "Pocket Pivot",
+          "거래량 선행 매집"
+        ],
+        "ignition": [],
+        "trend": [],
+        "explosion": [
+          "소형주 1132억"
+        ]
+      },
+      "core_score": 36,
+      "core_rank": "관찰",
+      "core_rank_emoji": "🔍",
+      "core_hits": [
+        "거래량 선행 매집",
+        "Pocket Pivot",
+        "거래대금 6.9배"
+      ],
+      "core_penalties": [],
+      "super_alpha_score": 0,
+      "super_alpha_rank": "N/A",
+      "super_alpha_rank_emoji": "",
+      "super_alpha_hits": [],
+      "is_5bagger": false,
+      "metrics": {
+        "rsi": 69.4,
+        "sm_score": 0.0,
+        "nh_score": null,
+        "dv_score": 46,
         "sm_labels": [],
         "nh_type_ko": null,
         "nh_grade": null,
@@ -210,7 +386,7 @@
         "tp1": 51480.0,
         "tp2": 64350.0
       },
-      "position_size_pct": 3.2,
+      "position_size_pct": 4.8,
       "action": "조심 분할",
       "action_level": "cautious",
       "action_emoji": "⚠️",
@@ -250,7 +426,7 @@
       "core_rank_emoji": "",
       "core_hits": [
         "Pocket Pivot",
-        "RSI 43 매우 안전"
+        "RSI 41 매우 안전"
       ],
       "core_penalties": [],
       "super_alpha_score": 0,
@@ -259,7 +435,7 @@
       "super_alpha_hits": [],
       "is_5bagger": false,
       "metrics": {
-        "rsi": 43.3,
+        "rsi": 41.1,
         "sm_score": 0.0,
         "nh_score": null,
         "dv_score": 44,
@@ -291,7 +467,7 @@
         "tp1": 19824.0,
         "tp2": 24780.0
       },
-      "position_size_pct": 3.2,
+      "position_size_pct": 4.8,
       "action": "조심 분할",
       "action_level": "cautious",
       "action_emoji": "⚠️",
@@ -322,7 +498,7 @@
         "ignition": [],
         "trend": [],
         "explosion": [
-          "매집 239일"
+          "매집 240일"
         ]
       },
       "core_score": 24,
@@ -330,7 +506,7 @@
       "core_rank_emoji": "",
       "core_hits": [
         "Pocket Pivot",
-        "RSI 62 안전"
+        "RSI 61 안전"
       ],
       "core_penalties": [],
       "super_alpha_score": 0,
@@ -339,7 +515,7 @@
       "super_alpha_hits": [],
       "is_5bagger": false,
       "metrics": {
-        "rsi": 61.6,
+        "rsi": 61.0,
         "sm_score": 0.0,
         "nh_score": null,
         "dv_score": 42,
@@ -372,7 +548,7 @@
         "tp1": 49380.0,
         "tp2": 61725.0
       },
-      "position_size_pct": 3.2,
+      "position_size_pct": 4.8,
       "action": "조심 분할",
       "action_level": "cautious",
       "action_emoji": "⚠️",
@@ -413,7 +589,7 @@
       "core_hits": [
         "OBV 다이버전스",
         "Pocket Pivot",
-        "RSI 51 매우 안전"
+        "RSI 50 매우 안전"
       ],
       "core_penalties": [],
       "super_alpha_score": 0,
@@ -422,7 +598,7 @@
       "super_alpha_hits": [],
       "is_5bagger": false,
       "metrics": {
-        "rsi": 51.4,
+        "rsi": 50.4,
         "sm_score": 0.0,
         "nh_score": null,
         "dv_score": 41,
@@ -455,7 +631,7 @@
         "tp1": 172200.0,
         "tp2": 215250.0
       },
-      "position_size_pct": 3.2,
+      "position_size_pct": 4.8,
       "action": "조심 분할",
       "action_level": "cautious",
       "action_emoji": "⚠️",
@@ -468,7 +644,7 @@
         "⚡ smart-money ",
         "📈 divergence B 40 Pocket Pivot 매수"
       ],
-      "a_signal": 2,
+      "a_signal": 1,
       "b_signal": 5,
       "genuine_score": 17,
       "genuine_rank": "미관심",
@@ -489,15 +665,16 @@
         ],
         "trend": [],
         "explosion": [
-          "매집 239일"
+          "매집 240일"
         ]
       },
-      "core_score": 24,
+      "core_score": 31,
       "core_rank": "부적합",
       "core_rank_emoji": "",
       "core_hits": [
         "Pocket Pivot",
-        "RSI 57 안전"
+        "RSI 54 매우 안전",
+        "60>240선 정배열"
       ],
       "core_penalties": [],
       "super_alpha_score": 0,
@@ -506,7 +683,7 @@
       "super_alpha_hits": [],
       "is_5bagger": false,
       "metrics": {
-        "rsi": 57.0,
+        "rsi": 53.9,
         "sm_score": 0.0,
         "nh_score": null,
         "dv_score": 40,
@@ -514,6 +691,91 @@
         "nh_type_ko": null,
         "nh_grade": null,
         "dv_grade": "B"
+      }
+    },
+    {
+      "ticker": "383310",
+      "name": "에코프로에이치엔",
+      "market": "KOSDAQ",
+      "themes": [
+        "2차전지",
+        "전구체"
+      ],
+      "category": "B",
+      "verification": 2,
+      "sources": [
+        "smart_money",
+        "divergence"
+      ],
+      "combined_score": 18.0,
+      "current_price": 23900.0,
+      "trading": {
+        "source": "fallback_backtest",
+        "entry": 23900.0,
+        "stop": 22227.0,
+        "tp1": 28680.0,
+        "tp2": 35850.0
+      },
+      "position_size_pct": 4.8,
+      "action": "조심 분할",
+      "action_level": "cautious",
+      "action_emoji": "⚠️",
+      "action_reasons": [
+        "추세 검증 부족",
+        "종합 점수 부족"
+      ],
+      "block_reasons": [],
+      "signals_summary": [
+        "⚡ smart-money ",
+        "📈 divergence C 36 Pocket Pivot 매수"
+      ],
+      "a_signal": 0,
+      "b_signal": 4,
+      "genuine_score": 22,
+      "genuine_rank": "씨앗",
+      "genuine_rank_emoji": "🌱",
+      "genuine_breakdown": {
+        "accumulation": 14,
+        "ignition": 5,
+        "trend": 0,
+        "explosion": 3
+      },
+      "genuine_hits": {
+        "accumulation": [
+          "Pocket Pivot",
+          "거래량 선행 매집"
+        ],
+        "ignition": [
+          "주봉 VCP"
+        ],
+        "trend": [],
+        "explosion": [
+          "중소형 5044억"
+        ]
+      },
+      "core_score": 38,
+      "core_rank": "관찰",
+      "core_rank_emoji": "🔍",
+      "core_hits": [
+        "거래량 선행 매집",
+        "Pocket Pivot",
+        "RSI 44 매우 안전"
+      ],
+      "core_penalties": [],
+      "super_alpha_score": 0,
+      "super_alpha_rank": "N/A",
+      "super_alpha_rank_emoji": "",
+      "super_alpha_hits": [],
+      "is_5bagger": false,
+      "metrics": {
+        "rsi": 44.4,
+        "sm_score": 0.0,
+        "nh_score": null,
+        "dv_score": 36,
+        "sm_labels": [],
+        "nh_type_ko": null,
+        "nh_grade": null,
+        "dv_grade": "C"
       }
     },
     {
@@ -539,7 +801,7 @@
         "tp1": 36480.0,
         "tp2": 45600.0
       },
-      "position_size_pct": 3.2,
+      "position_size_pct": 4.8,
       "action": "조심 분할",
       "action_level": "cautious",
       "action_emoji": "⚠️",
@@ -578,7 +840,7 @@
       "core_rank_emoji": "",
       "core_hits": [
         "Pocket Pivot",
-        "RSI 63 안전"
+        "RSI 61 안전"
       ],
       "core_penalties": [],
       "super_alpha_score": 0,
@@ -587,7 +849,7 @@
       "super_alpha_hits": [],
       "is_5bagger": false,
       "metrics": {
-        "rsi": 63.4,
+        "rsi": 61.4,
         "sm_score": 0.0,
         "nh_score": null,
         "dv_score": 25,
@@ -619,16 +881,17 @@
         "tp1": 32580.0,
         "tp2": 40725.0
       },
-      "position_size_pct": 2.0,
-      "action": "회피",
-      "action_level": "avoid",
-      "action_emoji": "⛔",
+      "position_size_pct": 3.0,
+      "action": "조심 분할",
+      "action_level": "cautious",
+      "action_emoji": "⚠️",
       "action_reasons": [
-        "BEAR장 + 단일 검증"
+        "단일 소스 신호",
+        "추세 검증 부족",
+        "출발 신호 미발현",
+        "종합 점수 부족"
       ],
-      "block_reasons": [
-        "BEAR장 + 단일 검증"
-      ],
+      "block_reasons": [],
       "signals_summary": [
         "📈 divergence S 72 Pocket Pivot 매수"
       ],
@@ -662,7 +925,7 @@
       "core_hits": [
         "OBV 다이버전스",
         "Pocket Pivot",
-        "RSI 58 안전"
+        "RSI 57 안전"
       ],
       "core_penalties": [],
       "super_alpha_score": 0,
@@ -671,7 +934,7 @@
       "super_alpha_hits": [],
       "is_5bagger": false,
       "metrics": {
-        "rsi": 58.0,
+        "rsi": 57.2,
         "sm_score": null,
         "nh_score": null,
         "dv_score": 72,
@@ -703,16 +966,17 @@
         "tp1": 1012.8,
         "tp2": 1266.0
       },
-      "position_size_pct": 2.0,
-      "action": "회피",
-      "action_level": "avoid",
-      "action_emoji": "⛔",
+      "position_size_pct": 3.0,
+      "action": "조심 분할",
+      "action_level": "cautious",
+      "action_emoji": "⚠️",
       "action_reasons": [
-        "BEAR장 + 단일 검증"
+        "단일 소스 신호",
+        "추세 검증 부족",
+        "출발 신호 미발현",
+        "종합 점수 부족"
       ],
-      "block_reasons": [
-        "BEAR장 + 단일 검증"
-      ],
+      "block_reasons": [],
       "signals_summary": [
         "📈 divergence A 57 Pocket Pivot 매수"
       ],
@@ -739,13 +1003,13 @@
           "미발견 강신호"
         ]
       },
-      "core_score": 38,
+      "core_score": 41,
       "core_rank": "관찰",
       "core_rank_emoji": "🔍",
       "core_hits": [
         "거래량 선행 매집",
         "Pocket Pivot",
-        "RSI 57 안전"
+        "RSI 50 매우 안전"
       ],
       "core_penalties": [],
       "super_alpha_score": 0,
@@ -754,7 +1018,7 @@
       "super_alpha_hits": [],
       "is_5bagger": false,
       "metrics": {
-        "rsi": 57.0,
+        "rsi": 50.0,
         "sm_score": null,
         "nh_score": null,
         "dv_score": 57,
@@ -785,16 +1049,17 @@
         "tp1": 5796.0,
         "tp2": 7245.0
       },
-      "position_size_pct": 2.0,
-      "action": "회피",
-      "action_level": "avoid",
-      "action_emoji": "⛔",
+      "position_size_pct": 3.0,
+      "action": "조심 분할",
+      "action_level": "cautious",
+      "action_emoji": "⚠️",
       "action_reasons": [
-        "BEAR장 + 단일 검증"
+        "단일 소스 신호",
+        "추세 검증 부족",
+        "출발 신호 미발현",
+        "종합 점수 부족"
       ],
-      "block_reasons": [
-        "BEAR장 + 단일 검증"
-      ],
+      "block_reasons": [],
       "signals_summary": [
         "📈 divergence A 55 볼린저 스퀴즈"
       ],
@@ -825,7 +1090,7 @@
       "core_rank_emoji": "🔍",
       "core_hits": [
         "OBV 다이버전스",
-        "RSI 56 안전"
+        "RSI 63 안전"
       ],
       "core_penalties": [],
       "super_alpha_score": 0,
@@ -834,7 +1099,7 @@
       "super_alpha_hits": [],
       "is_5bagger": false,
       "metrics": {
-        "rsi": 55.5,
+        "rsi": 63.3,
         "sm_score": null,
         "nh_score": null,
         "dv_score": 55,
@@ -865,18 +1130,18 @@
         "tp1": 6564.0,
         "tp2": 8205.0
       },
-      "position_size_pct": 2.0,
-      "action": "회피",
-      "action_level": "avoid",
-      "action_emoji": "⛔",
+      "position_size_pct": 3.0,
+      "action": "조심 분할",
+      "action_level": "cautious",
+      "action_emoji": "⚠️",
       "action_reasons": [
-        "RSI 90 과열",
-        "BEAR장 + 단일 검증"
+        "RSI 80 다소 높음",
+        "단일 소스 신호",
+        "추세 검증 부족",
+        "출발 신호 미발현",
+        "종합 점수 부족"
       ],
-      "block_reasons": [
-        "RSI 90 과열",
-        "BEAR장 + 단일 검증"
-      ],
+      "block_reasons": [],
       "signals_summary": [
         "📈 divergence B 46 Pocket Pivot 매수"
       ],
@@ -903,14 +1168,14 @@
           "미발견 강신호"
         ]
       },
-      "core_score": 6,
+      "core_score": 13,
       "core_rank": "부적합",
       "core_rank_emoji": "",
       "core_hits": [
         "Pocket Pivot"
       ],
       "core_penalties": [
-        "RSI 90 과열"
+        "RSI 80 부담"
       ],
       "super_alpha_score": 0,
       "super_alpha_rank": "N/A",
@@ -918,92 +1183,10 @@
       "super_alpha_hits": [],
       "is_5bagger": false,
       "metrics": {
-        "rsi": 89.7,
+        "rsi": 79.6,
         "sm_score": null,
         "nh_score": null,
         "dv_score": 46,
-        "sm_labels": [],
-        "nh_type_ko": null,
-        "nh_grade": null,
-        "dv_grade": "B"
-      }
-    },
-    {
-      "ticker": "006280",
-      "name": "녹십자",
-      "market": "",
-      "themes": [
-        "바이오",
-        "제약"
-      ],
-      "category": "watch",
-      "verification": 1,
-      "sources": [
-        "divergence"
-      ],
-      "combined_score": 45.0,
-      "current_price": 139700.0,
-      "trading": {
-        "source": "fallback_backtest",
-        "entry": 139700.0,
-        "stop": 129921.0,
-        "tp1": 167640.0,
-        "tp2": 209550.0
-      },
-      "position_size_pct": 2.0,
-      "action": "회피",
-      "action_level": "avoid",
-      "action_emoji": "⛔",
-      "action_reasons": [
-        "BEAR장 + 단일 검증"
-      ],
-      "block_reasons": [
-        "BEAR장 + 단일 검증"
-      ],
-      "signals_summary": [
-        "📈 divergence B 45 Pocket Pivot 매수"
-      ],
-      "a_signal": 0,
-      "b_signal": 3,
-      "genuine_score": 20,
-      "genuine_rank": "씨앗",
-      "genuine_rank_emoji": "🌱",
-      "genuine_breakdown": {
-        "accumulation": 18,
-        "ignition": 0,
-        "trend": 0,
-        "explosion": 2
-      },
-      "genuine_hits": {
-        "accumulation": [
-          "Pocket Pivot",
-          "거래량 선행 매집",
-          "20주선 안착"
-        ],
-        "ignition": [],
-        "trend": [],
-        "explosion": [
-          "미발견 강신호"
-        ]
-      },
-      "core_score": 30,
-      "core_rank": "부적합",
-      "core_rank_emoji": "",
-      "core_hits": [
-        "Pocket Pivot",
-        "RSI 59 안전"
-      ],
-      "core_penalties": [],
-      "super_alpha_score": 0,
-      "super_alpha_rank": "N/A",
-      "super_alpha_rank_emoji": "",
-      "super_alpha_hits": [],
-      "is_5bagger": false,
-      "metrics": {
-        "rsi": 58.9,
-        "sm_score": null,
-        "nh_score": null,
-        "dv_score": 45,
         "sm_labels": [],
         "nh_type_ko": null,
         "nh_grade": null,
@@ -1032,16 +1215,17 @@
         "tp1": 144000.0,
         "tp2": 180000.0
       },
-      "position_size_pct": 2.0,
-      "action": "회피",
-      "action_level": "avoid",
-      "action_emoji": "⛔",
+      "position_size_pct": 3.0,
+      "action": "조심 분할",
+      "action_level": "cautious",
+      "action_emoji": "⚠️",
       "action_reasons": [
-        "BEAR장 + 단일 검증"
+        "단일 소스 신호",
+        "추세 검증 부족",
+        "출발 신호 미발현",
+        "종합 점수 부족"
       ],
-      "block_reasons": [
-        "BEAR장 + 단일 검증"
-      ],
+      "block_reasons": [],
       "signals_summary": [
         "📈 divergence C 37 종가 밀집"
       ],
@@ -1113,16 +1297,17 @@
         "tp1": 1944.0,
         "tp2": 2430.0
       },
-      "position_size_pct": 2.0,
-      "action": "회피",
-      "action_level": "avoid",
-      "action_emoji": "⛔",
+      "position_size_pct": 3.0,
+      "action": "조심 분할",
+      "action_level": "cautious",
+      "action_emoji": "⚠️",
       "action_reasons": [
-        "BEAR장 + 단일 검증"
+        "단일 소스 신호",
+        "추세 검증 부족",
+        "출발 신호 미발현",
+        "종합 점수 부족"
       ],
-      "block_reasons": [
-        "BEAR장 + 단일 검증"
-      ],
+      "block_reasons": [],
       "signals_summary": [
         "📈 divergence C 37 VCP 변동성 수축"
       ],
@@ -1153,7 +1338,7 @@
       "core_rank_emoji": "🔍",
       "core_hits": [
         "OBV 다이버전스",
-        "RSI 37 매우 안전"
+        "RSI 45 매우 안전"
       ],
       "core_penalties": [],
       "super_alpha_score": 0,
@@ -1162,7 +1347,7 @@
       "super_alpha_hits": [],
       "is_5bagger": false,
       "metrics": {
-        "rsi": 36.6,
+        "rsi": 45.2,
         "sm_score": null,
         "nh_score": null,
         "dv_score": 37,
@@ -1193,16 +1378,17 @@
         "tp1": 1609.2,
         "tp2": 2011.5
       },
-      "position_size_pct": 2.0,
-      "action": "회피",
-      "action_level": "avoid",
-      "action_emoji": "⛔",
+      "position_size_pct": 3.0,
+      "action": "조심 분할",
+      "action_level": "cautious",
+      "action_emoji": "⚠️",
       "action_reasons": [
-        "BEAR장 + 단일 검증"
+        "단일 소스 신호",
+        "추세 검증 부족",
+        "출발 신호 미발현",
+        "종합 점수 부족"
       ],
-      "block_reasons": [
-        "BEAR장 + 단일 검증"
-      ],
+      "block_reasons": [],
       "signals_summary": [
         "📈 divergence C 33 Pocket Pivot 매수"
       ],
@@ -1234,7 +1420,7 @@
       "core_rank_emoji": "",
       "core_hits": [
         "Pocket Pivot",
-        "RSI 60 안전"
+        "RSI 58 안전"
       ],
       "core_penalties": [],
       "super_alpha_score": 0,
@@ -1243,7 +1429,7 @@
       "super_alpha_hits": [],
       "is_5bagger": false,
       "metrics": {
-        "rsi": 60.2,
+        "rsi": 58.1,
         "sm_score": null,
         "nh_score": null,
         "dv_score": 33,
@@ -1274,16 +1460,17 @@
         "tp1": 4524.0,
         "tp2": 5655.0
       },
-      "position_size_pct": 2.0,
-      "action": "회피",
-      "action_level": "avoid",
-      "action_emoji": "⛔",
+      "position_size_pct": 3.0,
+      "action": "조심 분할",
+      "action_level": "cautious",
+      "action_emoji": "⚠️",
       "action_reasons": [
-        "BEAR장 + 단일 검증"
+        "단일 소스 신호",
+        "추세 검증 부족",
+        "출발 신호 미발현",
+        "종합 점수 부족"
       ],
-      "block_reasons": [
-        "BEAR장 + 단일 검증"
-      ],
+      "block_reasons": [],
       "signals_summary": [
         "📈 divergence C 32 Pocket Pivot 매수"
       ],
@@ -1316,7 +1503,7 @@
       "core_hits": [
         "OBV 다이버전스",
         "Pocket Pivot",
-        "RSI 45 매우 안전"
+        "RSI 50 매우 안전"
       ],
       "core_penalties": [],
       "super_alpha_score": 0,
@@ -1325,7 +1512,7 @@
       "super_alpha_hits": [],
       "is_5bagger": false,
       "metrics": {
-        "rsi": 45.2,
+        "rsi": 50.3,
         "sm_score": null,
         "nh_score": null,
         "dv_score": 32,
@@ -1356,16 +1543,17 @@
         "tp1": 36600.0,
         "tp2": 45750.0
       },
-      "position_size_pct": 2.0,
-      "action": "회피",
-      "action_level": "avoid",
-      "action_emoji": "⛔",
+      "position_size_pct": 3.0,
+      "action": "조심 분할",
+      "action_level": "cautious",
+      "action_emoji": "⚠️",
       "action_reasons": [
-        "BEAR장 + 단일 검증"
+        "단일 소스 신호",
+        "추세 검증 부족",
+        "출발 신호 미발현",
+        "종합 점수 부족"
       ],
-      "block_reasons": [
-        "BEAR장 + 단일 검증"
-      ],
+      "block_reasons": [],
       "signals_summary": [
         "📈 divergence C 31 볼린저 스퀴즈"
       ],
@@ -1397,7 +1585,7 @@
       "core_hits": [
         "OBV 다이버전스",
         "거래량 선행 매집",
-        "RSI 43 매우 안전"
+        "RSI 40 매우 안전"
       ],
       "core_penalties": [],
       "super_alpha_score": 0,
@@ -1406,7 +1594,7 @@
       "super_alpha_hits": [],
       "is_5bagger": false,
       "metrics": {
-        "rsi": 43.4,
+        "rsi": 39.8,
         "sm_score": null,
         "nh_score": null,
         "dv_score": 31,
@@ -1438,16 +1626,17 @@
         "tp1": 19200.0,
         "tp2": 24000.0
       },
-      "position_size_pct": 2.0,
-      "action": "회피",
-      "action_level": "avoid",
-      "action_emoji": "⛔",
+      "position_size_pct": 3.0,
+      "action": "조심 분할",
+      "action_level": "cautious",
+      "action_emoji": "⚠️",
       "action_reasons": [
-        "BEAR장 + 단일 검증"
+        "단일 소스 신호",
+        "추세 검증 부족",
+        "출발 신호 미발현",
+        "종합 점수 부족"
       ],
-      "block_reasons": [
-        "BEAR장 + 단일 검증"
-      ],
+      "block_reasons": [],
       "signals_summary": [
         "📈 divergence C 29 볼린저 스퀴즈"
       ],
@@ -1518,16 +1707,17 @@
         "tp1": 306000.0,
         "tp2": 382500.0
       },
-      "position_size_pct": 2.0,
-      "action": "회피",
-      "action_level": "avoid",
-      "action_emoji": "⛔",
+      "position_size_pct": 3.0,
+      "action": "조심 분할",
+      "action_level": "cautious",
+      "action_emoji": "⚠️",
       "action_reasons": [
-        "BEAR장 + 단일 검증"
+        "단일 소스 신호",
+        "추세 검증 부족",
+        "출발 신호 미발현",
+        "종합 점수 부족"
       ],
-      "block_reasons": [
-        "BEAR장 + 단일 검증"
-      ],
+      "block_reasons": [],
       "signals_summary": [
         "📈 divergence D 23 OBV 매집 다이버전스"
       ],
@@ -1558,7 +1748,7 @@
       "core_rank_emoji": "🔍",
       "core_hits": [
         "OBV 다이버전스",
-        "RSI 37 매우 안전"
+        "RSI 34 매우 안전"
       ],
       "core_penalties": [],
       "super_alpha_score": 0,
@@ -1567,7 +1757,7 @@
       "super_alpha_hits": [],
       "is_5bagger": false,
       "metrics": {
-        "rsi": 36.8,
+        "rsi": 34.4,
         "sm_score": null,
         "nh_score": null,
         "dv_score": 23,
@@ -1579,21 +1769,21 @@
     }
   ],
   "meta": {
-    "generated_at": "2026-11-10T15:32:52.210616+00:00",
+    "generated_at": "2026-11-10T19:39:22.244482+00:00",
     "sources": {
       "smart_money": {
         "ok": true,
-        "scan_at": "2026-11-10T06:54:00.296947",
+        "scan_at": "2026-11-11T04:16:23.326157",
         "error": null
       },
       "new_high": {
         "ok": true,
-        "scan_at": "2026-11-10T06:52:43.793914",
+        "scan_at": "2026-11-11T04:14:38.954649",
         "error": null
       },
       "divergence": {
         "ok": true,
-        "scan_at": "2026-11-10T06:57:45.229055",
+        "scan_at": "2026-11-11T04:20:26.675239",
         "error": null
       }
     },
